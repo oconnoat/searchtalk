@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Introduction to IR, MT &amp; Semantics -- Alexander O'Connor </title>
+		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="impress">
+			<div id="Start" class="step" data-x="0" data-y="0">
+				<div style="width:1000px;font-size:16px;text-align:center;">
+					<h1>A Brief Introduction to IR, MT and Semantics</h1>
+					<h2> Dr. Alexander O'Connor, <a href="http://www.cngl.ie">CNGL</a>, <a href="http://kdeg.scss.tcd.ie">KDEG</a>, <a href="http://scss.tcd.ie">TCD</a></h2>
+					<img src="assets/images/alex.png"/>
+					<h3><a href="mailto:Alex.OConnor@scss.tcd.ie">Alex.OConnor@scss.tcd.ie</a></h3>	
+					<h3><a href="http://www.twitter.com/uberalex">@uberalex</a></h3>
+				</div>
+			</div>
+			<div id="Outline" class="step" data-x="-1200" data-y="0">
+				<div style="width:1000px; font-size:24px;">
+					<h2>What I would like you to know by the end of this talk</h2>
+					<ul>
+						<li> how a computer represents a document</li>
+						<li> how documents are indexed and queries are matched</li>
+						<li> some key ranking algorithms and how they work</li>
+						<li> some of the features of modern web retrieval systems</li> 
+					</ul>
+				</div>
+			</div>
+			<div id="OutlinePart2" class="step" data-x="-1200" data-y="1200" data-rotate-z="90">
+				<div style="width:1000px; font-size:24px">
+					<h2>What I would like you to know by the end of this talk</h2>
+				<ul>
+					<li> how a computer can represent facts and concepts as a graph</li>
+					<li>the difference between semantic and non-semantic approaches to knowledge representation</li>
+					<li> how to publish linked data on the web</li>
+				</ul>
+				</div>
+			</div>
+			<div id="OutlinePart3" class="step" data-x="-1200" data-y="2400" data-rotate-z="180">
+				<div style="width:1000px; font-size:24px">
+					<h2>What I would like you to know by the end of this talk</h2>
+				<ul>
+					<li>How Statistical Machine Translation Evolved</li>
+					<li>How SMT works</li>
+					<li>The Challenges of Training SMT Systems</li>
+				</ul>
+				</div>
+			</div>
+			<div id="Einstein" class="step" data-y="1200">
+				<div style="width:1000px; font-size:40px">
+					<a href="http://commons.wikimedia.org/wiki/File:Albert_Einstein_1947.jpg"><img src="assets/images/einstein.jpg" alt="Albert Einstein" style="float:left; margin:0.25em;" width="250" title="Albert Einstein, 1947. Image from Wikimedia Commons" /></a>
+					<blockquote style="text-align:justify;"> [I do not] carry such information in my mind since it is readily available in books. ...The value of a college education is not the learning of many facts but the training of the mind to think &mdash; <a href="http://en.wikiquote.org/wiki/Albert_Einstein#1920s">Albert Einstein</a>
+					</blockquote>
+				</div>
+			</div>
+			<div id="IRTitle" class="step" data-x="1200" data-y="0">
+				<div style="width:1000px; font-size:80px">	
+					Information Retrieval
+				</div>
+			</div>	
+			<div id="DocRep" class="step" data-x="1200" data-y="1200">
+				<div style="width:1000px; font-size:40px">
+					<p>Document representation.</p>
+				</div>
+			</div>
+			<div id="theDoc" class="step" data-x="800" data-y="1350" data-scale="0.2">
+				<div style="width:1000px; font-size:32px; border: 5px solid black">
+					<h4>Lines Written on a Seat on the Grand Canal, Dublin</h4>
+
+					<p style="overflow:auto">'Erected to the memory of Mrs. Dermot O'Brien' <br /><br />
+
+					O commemorate me where there is water,<br />
+					Canal water, preferably, so stilly <br />
+					Greeny at the heart of summer. Brother <br />
+					Commemorate me thus beautifully <br />
+					Where by a lock niagarously roars <br />
+					The falls for those who sit in the tremendous silence <br />
+					Of mid-July.  No one will speak in prose <br />
+					Who finds his way to these Parnassian islands. <br />
+					A swan goes by head low with many apologies, <br />
+					Fantastic light looks through the eyes of bridges -<br /> 
+					And look! a barge comes bringing from Athy<br />
+					And other far-flung towns mythologies.<br />
+					O commemorate me with no hero-courageous <br />
+					Tomb - just a canal-bank seat for the passer-by.<br />
+					</p>
+					<p style="text-align:right;">-Patrick Kavanagh
+					<br />Copyright &copy; Estate of Katherine Kavanagh
+					</p>
+				</div>
+			</div>
+			<div id="theDocBag" class="step" data-x="1050" data-y="1325" data-scale="0.2">
+				<div style="width:1000px; font-size:32px; border: 5px solid black">
+					<h4>Lines Written on a Seat on the Grand Canal, Dublin</h4>
+					<p>
+					A, And, And, Athy, Brother, Canal, Commemorate, Dermot, Erected, Fantastic, Greeny, Mrs, No, O, O, OBrien, Of, Parnassian, The, Tomb, Where, Who, a, a, a, apologies, at, barge, beautifully, bridges, bringing, by, by, canal-bank, comes, commemorate, commemorate, eyes, falls, far-flung, finds, for, for, from, goes, head, heart, hero-courageous, his, in, in, is, islands, just, light, lock, look, looks, low, many, me, me, me, memory, mid-July, mythologies, niagarously, no, of, of, of, one, other, passer-by, preferably, prose, roars, seat, silence, sit, so, speak, stilly, summer, swan, the, the, the, the, the, there, these, those, through, thus, to, to, towns, tremendous, water, water, way, where, who, will, with, with
+					</p>
+<table>
+<tr><td>and</td><td>2</td></tr>
+<tr><td>heart</td><td>1</td></tr>
+<tr><td>fantastic</td><td>1</td></tr>
+<tr><td>far-flung</td><td>1</td></tr>
+<tr><td>just</td><td>1</td></tr>
+<tr><td>summer</td><td>1</td></tr>
+<tr><td>low</td><td>1</td></tr>
+<tr><td>lock</td><td>1</td></tr>
+<tr><td>is</td><td>1</td></tr>
+<tr><td>in</td><td>2</td></tr>
+<tr><td>thus</td><td>1</td></tr>
+<tr><td>head</td><td>1</td></tr>
+<tr><td>erected</td><td>1</td></tr>
+<tr><td>prose</td><td>1</td></tr>
+<tr><td>way</td><td>1</td></tr>
+<tr><td>through</td><td>1</td></tr>
+<tr><td>at</td><td>1</td></tr>
+<tr><td>beautifully</td><td>1</td></tr>
+<tr><td>apologies</td><td>1</td></tr>
+<tr><td>towns</td><td>1</td></tr>
+<tr><td>speak</td><td>1</td></tr>
+<tr><td>canal</td><td>1</td></tr>
+<tr><td>bridges</td><td>1</td></tr>
+<tr><td>from</td><td>1</td></tr>
+<tr><td>stilly</td><td>1</td></tr>
+<tr><td>for</td><td>2</td></tr>
+<tr><td>no</td><td>2</td></tr>
+<tr><td>tremendous</td><td>1</td></tr>
+<tr><td>with</td><td>2</td></tr>
+<tr><td>will</td><td>1</td></tr>
+<tr><td>swan</td><td>1</td></tr>
+<tr><td>passer-by</td><td>1</td></tr>
+<tr><td>canal-bank</td><td>1</td></tr>
+<tr><td>by</td><td>2</td></tr>
+<tr><td>to</td><td>2</td></tr>
+<tr><td>roars</td><td>1</td></tr>
+<tr><td>other</td><td>1</td></tr>
+<tr><td>o'brien</td><td>1</td></tr>
+<tr><td>goes</td><td>1</td></tr>
+<tr><td>memory</td><td>1</td></tr>
+<tr><td>seat</td><td>1</td></tr>
+<tr><td>many</td><td>1</td></tr>
+<tr><td>dermot</td><td>1</td></tr>
+<tr><td>me</td><td>3</td></tr>
+<tr><td>eyes</td><td>1</td></tr>
+<tr><td>his</td><td>1</td></tr>
+<tr><td>athy</td><td>1</td></tr>
+<tr><td>there</td><td>1</td></tr>
+<tr><td>who</td><td>2</td></tr>
+<tr><td>mid-july</td><td>1</td></tr>
+<tr><td>falls</td><td>1</td></tr>
+<tr><td>commemorate</td><td>3</td></tr>
+<tr><td>preferably</td><td>1</td></tr>
+<tr><td>hero-courageous</td><td>1</td></tr>
+<tr><td>barge</td><td>1</td></tr>
+<tr><td>parnassian</td><td>1</td></tr>
+<tr><td>one</td><td>1</td></tr>
+<tr><td>bringing</td><td>1</td></tr>
+<tr><td>the</td><td>6</td></tr>
+<tr><td>those</td><td>1</td></tr>
+<tr><td>a</td><td>4</td></tr>
+<tr><td>water</td><td>2</td></tr>
+<tr><td>look</td><td>1</td></tr>
+<tr><td>these</td><td>1</td></tr>
+<tr><td>of</td><td>4</td></tr>
+<tr><td>sit</td><td>1</td></tr>
+<tr><td>greeny</td><td>1</td></tr>
+<tr><td>brother</td><td>1</td></tr>
+<tr><td>o</td><td>2</td></tr>
+<tr><td>mrs</td><td>1</td></tr>
+<tr><td>niagarously</td><td>1</td></tr>
+<tr><td>mythologies</td><td>1</td></tr>
+<tr><td>so</td><td>1</td></tr>
+<tr><td>silence</td><td>1</td></tr>
+<tr><td>light</td><td>1</td></tr>
+<tr><td>islands</td><td>1</td></tr>
+<tr><td>tomb</td><td>1</td></tr>
+<tr><td>where</td><td>2</td></tr>
+<tr><td>finds</td><td>1</td></tr>
+<tr><td>comes</td><td>1</td></tr>
+<tr><td>looks</td><td>1</td></tr>
+</table>
+					
+			</div>
+		</div>
+		<!-- Impress Javascript -->
+		<!-- load impress -->
+		<script src="js/impress.js"></script>
+		<!-- initialise impress -->
+		<script type="text/javascript">impress().init();</script>
+	</body>
+</html>
