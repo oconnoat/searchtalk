@@ -2,8 +2,6 @@
 <html lang="en">
 	<head>
 		<title>Introduction to IR, MT &amp; Semantics -- Alexander O'Connor </title>
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	</head>
 	<body>
 		<div id="impress">
@@ -11,7 +9,7 @@
 				<div style="width:1000px;font-size:16px;text-align:center;">
 					<h1>A Brief Introduction to IR, MT and Semantics</h1>
 					<h2> Dr. Alexander O'Connor, <a href="http://www.cngl.ie">CNGL</a>, <a href="http://kdeg.scss.tcd.ie">KDEG</a>, <a href="http://scss.tcd.ie">TCD</a></h2>
-					<img src="assets/images/alex.png"/>
+					<img src="assets/images/alex.png" title="Alexander O'Connor" alt="Author Image" />
 					<h3><a href="mailto:Alex.OConnor@scss.tcd.ie">Alex.OConnor@scss.tcd.ie</a></h3>	
 					<h3><a href="http://www.twitter.com/uberalex">@uberalex</a></h3>
 				</div>
@@ -55,8 +53,10 @@
 				</div>
 			</div>
 			<div id="IRTitle" class="step" data-x="1200" data-y="0">
-				<div style="width:1000px; font-size:80px">	
-					Information Retrieval
+				<div style="width:1000px; font-size:32px">	
+					<h2>Information Retrieval</h2>
+					<input type="text" value="Grand Canal" style="float:left; margin-right:10px;font-size:32px; width:400px;" />
+					<input type="submit" value="I'm feeling (un)lucky!" style="float:left;font-size:10em" />
 				</div>
 			</div>	
 			<div id="DocRep" class="step" data-x="1200" data-y="1200">
@@ -76,7 +76,7 @@
 					Commemorate me thus beautifully <br />
 					Where by a lock niagarously roars <br />
 					The falls for those who sit in the tremendous silence <br />
-					Of mid-July.  No one will speak in prose <br />
+					Of mid-July.No one will speak in prose <br />
 					Who finds his way to these Parnassian islands. <br />
 					A swan goes by head low with many apologies, <br />
 					Fantastic light looks through the eyes of bridges -<br /> 
@@ -90,102 +90,114 @@
 					</p>
 				</div>
 			</div>
-			<div id="theDocBag" class="step" data-x="1050" data-y="1325" data-scale="0.2">
+			<div id="theDocBag" class="step" data-x="1050" data-y="1325" data-scale="0.2" data-rotate-y="90">
 				<div style="width:1000px; font-size:32px; border: 5px solid black">
 					<h4>Lines Written on a Seat on the Grand Canal, Dublin</h4>
 					<p>
 					A, And, And, Athy, Brother, Canal, Commemorate, Dermot, Erected, Fantastic, Greeny, Mrs, No, O, O, OBrien, Of, Parnassian, The, Tomb, Where, Who, a, a, a, apologies, at, barge, beautifully, bridges, bringing, by, by, canal-bank, comes, commemorate, commemorate, eyes, falls, far-flung, finds, for, for, from, goes, head, heart, hero-courageous, his, in, in, is, islands, just, light, lock, look, looks, low, many, me, me, me, memory, mid-July, mythologies, niagarously, no, of, of, of, one, other, passer-by, preferably, prose, roars, seat, silence, sit, so, speak, stilly, summer, swan, the, the, the, the, the, there, these, those, through, thus, to, to, towns, tremendous, water, water, way, where, who, will, with, with
 					</p>
-<table>
-<tr><td>and</td><td>2</td></tr>
-<tr><td>heart</td><td>1</td></tr>
-<tr><td>fantastic</td><td>1</td></tr>
-<tr><td>far-flung</td><td>1</td></tr>
-<tr><td>just</td><td>1</td></tr>
-<tr><td>summer</td><td>1</td></tr>
-<tr><td>low</td><td>1</td></tr>
-<tr><td>lock</td><td>1</td></tr>
-<tr><td>is</td><td>1</td></tr>
-<tr><td>in</td><td>2</td></tr>
-<tr><td>thus</td><td>1</td></tr>
-<tr><td>head</td><td>1</td></tr>
-<tr><td>erected</td><td>1</td></tr>
-<tr><td>prose</td><td>1</td></tr>
-<tr><td>way</td><td>1</td></tr>
-<tr><td>through</td><td>1</td></tr>
-<tr><td>at</td><td>1</td></tr>
-<tr><td>beautifully</td><td>1</td></tr>
-<tr><td>apologies</td><td>1</td></tr>
-<tr><td>towns</td><td>1</td></tr>
-<tr><td>speak</td><td>1</td></tr>
-<tr><td>canal</td><td>1</td></tr>
-<tr><td>bridges</td><td>1</td></tr>
-<tr><td>from</td><td>1</td></tr>
-<tr><td>stilly</td><td>1</td></tr>
-<tr><td>for</td><td>2</td></tr>
-<tr><td>no</td><td>2</td></tr>
-<tr><td>tremendous</td><td>1</td></tr>
-<tr><td>with</td><td>2</td></tr>
-<tr><td>will</td><td>1</td></tr>
-<tr><td>swan</td><td>1</td></tr>
-<tr><td>passer-by</td><td>1</td></tr>
-<tr><td>canal-bank</td><td>1</td></tr>
-<tr><td>by</td><td>2</td></tr>
-<tr><td>to</td><td>2</td></tr>
-<tr><td>roars</td><td>1</td></tr>
-<tr><td>other</td><td>1</td></tr>
-<tr><td>o'brien</td><td>1</td></tr>
-<tr><td>goes</td><td>1</td></tr>
-<tr><td>memory</td><td>1</td></tr>
-<tr><td>seat</td><td>1</td></tr>
-<tr><td>many</td><td>1</td></tr>
-<tr><td>dermot</td><td>1</td></tr>
-<tr><td>me</td><td>3</td></tr>
-<tr><td>eyes</td><td>1</td></tr>
-<tr><td>his</td><td>1</td></tr>
-<tr><td>athy</td><td>1</td></tr>
-<tr><td>there</td><td>1</td></tr>
-<tr><td>who</td><td>2</td></tr>
-<tr><td>mid-july</td><td>1</td></tr>
-<tr><td>falls</td><td>1</td></tr>
-<tr><td>commemorate</td><td>3</td></tr>
-<tr><td>preferably</td><td>1</td></tr>
-<tr><td>hero-courageous</td><td>1</td></tr>
-<tr><td>barge</td><td>1</td></tr>
-<tr><td>parnassian</td><td>1</td></tr>
-<tr><td>one</td><td>1</td></tr>
-<tr><td>bringing</td><td>1</td></tr>
-<tr><td>the</td><td>6</td></tr>
-<tr><td>those</td><td>1</td></tr>
-<tr><td>a</td><td>4</td></tr>
-<tr><td>water</td><td>2</td></tr>
-<tr><td>look</td><td>1</td></tr>
-<tr><td>these</td><td>1</td></tr>
-<tr><td>of</td><td>4</td></tr>
-<tr><td>sit</td><td>1</td></tr>
-<tr><td>greeny</td><td>1</td></tr>
-<tr><td>brother</td><td>1</td></tr>
-<tr><td>o</td><td>2</td></tr>
-<tr><td>mrs</td><td>1</td></tr>
-<tr><td>niagarously</td><td>1</td></tr>
-<tr><td>mythologies</td><td>1</td></tr>
-<tr><td>so</td><td>1</td></tr>
-<tr><td>silence</td><td>1</td></tr>
-<tr><td>light</td><td>1</td></tr>
-<tr><td>islands</td><td>1</td></tr>
-<tr><td>tomb</td><td>1</td></tr>
-<tr><td>where</td><td>2</td></tr>
-<tr><td>finds</td><td>1</td></tr>
-<tr><td>comes</td><td>1</td></tr>
-<tr><td>looks</td><td>1</td></tr>
-</table>
-					
+				</div>
 			</div>
+			<div id="theDocFreq" class="step" data-x="1050" data-y="1325" data-z="-400" data-scale="0.2"data-rotate-y="90">
+				<div style="width:1000px; font-size:32px; border: 5px solid black; background-color:rgba(256,256,256,0.8)">
+					<h4>Lines Written on a Seat on the Grand Canal, Dublin</h4>
+					<div id="poemdata"></div>
+				</div>
+			</div>
+			<div id="TFAlgo" class="step" data-x="1200" data-y="2000">
+				<div style="width:1000px; font-size:32px">
+					<h3>How do we match the Query to the document?</h3>
+					<ul>
+						<li>Choose the document that mentions the query terms most often</li>
+						<li>We call this <strong>Term Frequency</strong>, tf</li>
+						<li><em>But, this has weaknesses</em></li>
+					</ul>
+				</div>
+			</div>
+			<div id="IDFAlgo" class="step" data-x="1200" data-y="2000" data-z="-1000" data-rotate-y="90"> 
+				<div style="width:1000px; font-size:32px">
+					<h3>What words are most important?</h3>
+					<ul>
+						<li>Count how many documents there are where the term appears</li>
+						<li>in the <em>corpus</em></li>
+						<li>We call this <strong>Document Frequency</strong>, df<sub>t</sub></li>
+						<li>document measure, not word measure</li>
+					</ul>
+				</div>
+			</div>
+			<div id="IDFAlgo2" class="step" data-x="1200" data-y="2000" data-z="-2500"  data-rotate-y="90">
+				<div style="width:1000px; font-size:32px">
+					<h3>What words are most important?</h3>
+					<ul>
+						<li>We use the <strong>inverse document frequency</strong> as a scaling factor for the term frequency</li>
+						<li>idf<sub>t</sub> = Log( #Documents where term appears / df<sub>t</sub>)</li>
+					</ul>
+				</div>
+			</div>
+			<div id="TFIDFAlgo" class="step" data-x="1200" data-y="2000"  data-z="-4000" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px">
+					<h3>How do we match the Query to the document?</h3>
+					<ul>
+						<li>tf x id<sub>t</sub></li>	
+						<li>The number of times the term appears in the document, scaled against the overall importance of the word in the corpus</li>
+						<li>Weight documents that mention more distinctive terms more often higher</li>
+					</ul>
+				</div>
+			</div>
+			<div id="ContentBased" class="step" data-x="1200" data-y="3000">
+				<div style="width:1000px; font-size:32px">
+					<h3>How do we match the Query to the document?</h3>
+					<h3>Look at the words (as a bag) and choose the most distinctive (content-based approach)</h3>
+					<ul>
+						<li><strong>Some improvements</strong></li>
+						<li>Eliminate the most common words of all (<em>stop words</em>)</li>
+						<li>Stem words (remove <em>-ing</em>, etc.)</li>
+						<li>Look at groups of words (<em>n-grams</em>)</li>
+						<li>Fix spelling errors (<em>edit distance</em>)</li>
+						<li>Use document structure (<em>Title, link text, metadata</em>)</li>
+						<li>Smarter, probablistic algorithm (<em>Okapi BM25F</em>)</li>
+					</ul>
+				</div>
+			</div>
+
+
 		</div>
 		<!-- Impress Javascript -->
 		<!-- load impress -->
 		<script src="js/impress.js"></script>
 		<!-- initialise impress -->
 		<script type="text/javascript">impress().init();</script>
+		<!-- D3 Javascript -->
+		<!-- load D3 -->
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<!-- d3 scripting -->
+		<script type="text/javascript">
+			//histogram of the words in the poem
+			var poemdata = [{'count': 6, 'word': 'the'}, {'count': 4, 'word': 'a'}, {'count': 4, 'word': 'of'}, {'count': 3, 'word': 'me'}, {'count': 3, 'word': 'commemorate'}, {'count': 2, 'word': 'and'}, {'count': 2, 'word': 'in'}, {'count': 2, 'word': 'for'}, {'count': 2, 'word': 'no'}, {'count': 2, 'word': 'with'}, {'count': 2, 'word': 'by'}, {'count': 2, 'word': 'to'}, {'count': 2, 'word': 'who'}, {'count': 2, 'word': 'water'}, {'count': 2, 'word': 'o'}, {'count': 2, 'word': 'where'}, {'count': 1, 'word': 'heart'}, {'count': 1, 'word': 'fantastic'}, {'count': 1, 'word': 'far-flung'}, {'count': 1, 'word': 'just'}, {'count': 1, 'word': 'summer'}, {'count': 1, 'word': 'low'}, {'count': 1, 'word': 'lock'}, {'count': 1, 'word': 'is'}, {'count': 1, 'word': 'thus'}, {'count': 1, 'word': 'head'}, {'count': 1, 'word': 'erected'}, {'count': 1, 'word': 'prose'}, {'count': 1, 'word': 'way'}, {'count': 1, 'word': 'through'}, {'count': 1, 'word': 'at'}, {'count': 1, 'word': 'beautifully'}, {'count': 1, 'word': 'apologies'}, {'count': 1, 'word': 'towns'}, {'count': 1, 'word': 'speak'}, {'count': 1, 'word': 'canal'}, {'count': 1, 'word': 'bridges'}, {'count': 1, 'word': 'from'}, {'count': 1, 'word': 'stilly'}, {'count': 1, 'word': 'tremendous'}, {'count': 1, 'word': 'will'}, {'count': 1, 'word': 'swan'}, {'count': 1, 'word': 'passer-by'}, {'count': 1, 'word': 'canal-bank'}, {'count': 1, 'word': 'roars'}, {'count': 1, 'word': 'other'}, {'count': 1, 'word': "o'brien"}, {'count': 1, 'word': 'goes'}, {'count': 1, 'word': 'memory'}, {'count': 1, 'word': 'seat'}, {'count': 1, 'word': 'many'}, {'count': 1, 'word': 'dermot'}, {'count': 1, 'word': 'eyes'}, {'count': 1, 'word': 'his'}, {'count': 1, 'word': 'athy'}, {'count': 1, 'word': 'there'}, {'count': 1, 'word': 'mid-july'}, {'count': 1, 'word': 'falls'}, {'count': 1, 'word': 'preferably'}, {'count': 1, 'word': 'hero-courageous'}, {'count': 1, 'word': 'barge'}, {'count': 1, 'word': 'parnassian'}, {'count': 1, 'word': 'one'}, {'count': 1, 'word': 'bringing'}, {'count': 1, 'word': 'those'}, {'count': 1, 'word': 'look'}, {'count': 1, 'word': 'these'}, {'count': 1, 'word': 'sit'}, {'count': 1, 'word': 'greeny'}, {'count': 1, 'word': 'brother'}, {'count': 1, 'word': 'mrs'}, {'count': 1, 'word': 'niagarously'}, {'count': 1, 'word': 'mythologies'}, {'count': 1, 'word': 'so'}, {'count': 1, 'word': 'silence'}, {'count': 1, 'word': 'light'}, {'count': 1, 'word': 'islands'}, {'count': 1, 'word': 'tomb'}, {'count': 1, 'word': 'finds'}, {'count': 1, 'word': 'comes'}, {'count': 1, 'word': 'looks'}]	
+		
+			var chart = d3.select("#poemdata").append("svg")
+			 			.attr("class", "chart")
+ 						.attr("height", 600)
+						.attr("width", 1000);
+
+
+			var x = d3.scale.linear().domain([0, poemdata.length]).range([0, 900]);
+			var y = d3.scale.linear().domain([0, d3.max(poemdata, function(datum) { return datum.count; })]).rangeRound([0, 600]);
+			var barWidth = (900 / poemdata.length) - 2;
+			chart.insert("svg:text").attr("id","worcount").attr("x", barWidth+50).attr("y", 100).attr("font-size","100px").text("");
+			chart.selectAll("rect").
+				data(poemdata).
+				enter().
+				append("svg:rect").
+				attr("x", function(datum, index) { return x(index) + 10; }).
+				attr("y", function(datum) { return 600 - y(datum.count); }).
+				attr("height", function(datum) { return y(datum.count); }).
+				attr("width", barWidth).
+				attr("fill", "#2d578b").
+				on("mouseover", function(datum){
+					chart.select("text").text(datum.word+": "+datum.count);
+					//console.log(datum);
+				});
+		</script>
 	</body>
 </html>
