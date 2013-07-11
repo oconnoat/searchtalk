@@ -152,15 +152,45 @@
 						<li><strong>Some improvements</strong></li>
 						<li>Eliminate the most common words of all (<em>stop words</em>)</li>
 						<li>Stem words (remove <em>-ing</em>, etc.)</li>
-						<li>Look at groups of words (<em>n-grams</em>)</li>
-						<li>Fix spelling errors (<em>edit distance</em>)</li>
+						<li>Look at groups of words (<em><a href="http://books.google.com/ngrams">n-grams</a></em>)</li>
+						<li><a href="http://norvig.com/spell-correct.html">Fix spelling errors</a> (<em><a href="http://www.let.rug.nl/kleiweg/lev/">edit distance</a></em>)</li>
 						<li>Use document structure (<em>Title, link text, metadata</em>)</li>
-						<li>Smarter, probablistic algorithm (<em>Okapi BM25F</em>)</li>
+						<li>Smarter, probablistic algorithm (<em>Okapi <a href="http://nlp.uned.es/~jperezi/Lucene-BM25/">BM25F</a></em>)</li>
 					</ul>
 				</div>
 			</div>
+			<div id="stopwords" class="step" data-x="1200" data-y="3000" data-z="-1000" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px; background-color:rgba(256,256,256,0.8)">
+					<p style="background-color:#eee;"><a href="http://lucene.apache.org/">Apache Lucene</a> <a href="http://svn.apache.org/repos/asf/lucene/dev/trunk/lucene/analysis/common/src/java/org/apache/lucene/analysis/core/StopAnalyzer.java">default stopwords:</a><br />
+						a, an, and, are, as, at, be, but, by,<br />
+						for, if, in, into, is, it,<br />
+						no, not, of, on, or, such,<br />
+						that, the, their, then, there, these,</br >
+      						they, this, to, was, will, with</p>	
+						<p>More aggressive lists can be extremely powerful. (<a href="http://www.matthewjockers.net/macroanalysisbook/expanded-stopwords-list/">XIX<sup>th</sup>C. fiction.</a>)</p>
+					<a href="#ContentBased">&crarr;</a>
+				</div>
 
-
+			</div>
+			<div id="stemmers" class="step" data-x="1200" data-y="3000" data-z="-2500" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px">
+					<div style="background-color:#eee">
+					<p>Stemmers and <a href="http://en.wikipedia.org/wiki/Lemmatisation">Lemmatisers</a> are used to group together words that differ only for grammatical reasons (plurals, verbs, nouns, adjectives, adverbs).</p>
+						<blockquote><em>Since it effectively provides a ‘suffix STRIPPER GRAMmar’, I had toyed with the idea of calling it ‘strippergram’, but good sense has prevailed, and so it is ‘Snowball’ named as a tribute to SNOBOL, the excellent string handling language of Messrs Farber, Griswold, Poage and Polonsky from the 1960s.</em>&mdash;Martin Porter</blockquote>
+					</div>
+										<ul>
+						<li>The most prominent stemmer is probably <a href="http://snowball.tartarus.org/index.php">Snowball</a></li>
+						<li>You can also train them up using machine learning</li>
+						<li><strong>Depend on language, normalisation, vocabulary, etc.</strong></li>
+					</ul>
+					<a href="#ContentBased">&crarr;</a>
+				</div>
+			</div>
+			<div id="webSearch" class="step" data-x="1200" data-y="4000">
+				<div style="width:1000px; font-size:32px">
+					<p>The World Wide Web is a <a href="http://www.w3.org/WhatIs.html">Hypertext</a> system. It has no 
+				</div>
+			</div>
 		</div>
 		<!-- Impress Javascript -->
 		<!-- load impress -->
@@ -172,6 +202,7 @@
 		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 		<!-- d3 scripting -->
 		<script type="text/javascript">
+//////////////////////////
 			//histogram of the words in the poem
 			var poemdata = [{'count': 6, 'word': 'the'}, {'count': 4, 'word': 'a'}, {'count': 4, 'word': 'of'}, {'count': 3, 'word': 'me'}, {'count': 3, 'word': 'commemorate'}, {'count': 2, 'word': 'and'}, {'count': 2, 'word': 'in'}, {'count': 2, 'word': 'for'}, {'count': 2, 'word': 'no'}, {'count': 2, 'word': 'with'}, {'count': 2, 'word': 'by'}, {'count': 2, 'word': 'to'}, {'count': 2, 'word': 'who'}, {'count': 2, 'word': 'water'}, {'count': 2, 'word': 'o'}, {'count': 2, 'word': 'where'}, {'count': 1, 'word': 'heart'}, {'count': 1, 'word': 'fantastic'}, {'count': 1, 'word': 'far-flung'}, {'count': 1, 'word': 'just'}, {'count': 1, 'word': 'summer'}, {'count': 1, 'word': 'low'}, {'count': 1, 'word': 'lock'}, {'count': 1, 'word': 'is'}, {'count': 1, 'word': 'thus'}, {'count': 1, 'word': 'head'}, {'count': 1, 'word': 'erected'}, {'count': 1, 'word': 'prose'}, {'count': 1, 'word': 'way'}, {'count': 1, 'word': 'through'}, {'count': 1, 'word': 'at'}, {'count': 1, 'word': 'beautifully'}, {'count': 1, 'word': 'apologies'}, {'count': 1, 'word': 'towns'}, {'count': 1, 'word': 'speak'}, {'count': 1, 'word': 'canal'}, {'count': 1, 'word': 'bridges'}, {'count': 1, 'word': 'from'}, {'count': 1, 'word': 'stilly'}, {'count': 1, 'word': 'tremendous'}, {'count': 1, 'word': 'will'}, {'count': 1, 'word': 'swan'}, {'count': 1, 'word': 'passer-by'}, {'count': 1, 'word': 'canal-bank'}, {'count': 1, 'word': 'roars'}, {'count': 1, 'word': 'other'}, {'count': 1, 'word': "o'brien"}, {'count': 1, 'word': 'goes'}, {'count': 1, 'word': 'memory'}, {'count': 1, 'word': 'seat'}, {'count': 1, 'word': 'many'}, {'count': 1, 'word': 'dermot'}, {'count': 1, 'word': 'eyes'}, {'count': 1, 'word': 'his'}, {'count': 1, 'word': 'athy'}, {'count': 1, 'word': 'there'}, {'count': 1, 'word': 'mid-july'}, {'count': 1, 'word': 'falls'}, {'count': 1, 'word': 'preferably'}, {'count': 1, 'word': 'hero-courageous'}, {'count': 1, 'word': 'barge'}, {'count': 1, 'word': 'parnassian'}, {'count': 1, 'word': 'one'}, {'count': 1, 'word': 'bringing'}, {'count': 1, 'word': 'those'}, {'count': 1, 'word': 'look'}, {'count': 1, 'word': 'these'}, {'count': 1, 'word': 'sit'}, {'count': 1, 'word': 'greeny'}, {'count': 1, 'word': 'brother'}, {'count': 1, 'word': 'mrs'}, {'count': 1, 'word': 'niagarously'}, {'count': 1, 'word': 'mythologies'}, {'count': 1, 'word': 'so'}, {'count': 1, 'word': 'silence'}, {'count': 1, 'word': 'light'}, {'count': 1, 'word': 'islands'}, {'count': 1, 'word': 'tomb'}, {'count': 1, 'word': 'finds'}, {'count': 1, 'word': 'comes'}, {'count': 1, 'word': 'looks'}]	
 		
@@ -198,6 +229,63 @@
 					chart.select("text").text(datum.word+": "+datum.count);
 					//console.log(datum);
 				});
+
+//////////////////////////
+			// force-directed graph of pages
+				var pageData = { "nodes":
+							[{"url":"A","group":1},
+							{"url":"B","group":1},
+							{"url":"C","group":1},
+							{"url":"D","group":1},
+							{"url":"E","group":2},
+							{"url":"F","group":2},
+							{"url":"G","group":3},
+							{"url":"H","group":3}],
+						"links":
+							[{"source":"1","target":"2","strength":"2"},
+							{"source":"1","target":"3","strength":"4"},
+							{"source":"1","target":"4","strength":"4"},
+							{"source":"2","target":"3","strength":"2"},
+							{"source":"2","target":"4","strength":"4"},
+							{"source":"2","target":"1","strength":"2"},
+							{"source":"3","target":"2","strength":"2"},
+							{"source":"3","target":"4","strength":"4"},
+							{"source":"3","target":"1","strength":"2"},
+							{"source":"4","target":"3","strength":"4"},
+							{"source":"4","target":"2","strength":"2"},
+							{"source":"4","target":"1","strength":"2"},
+							
+							{"source":"1","target":"5","strength":"4"},
+							{"source":"1","target":"8","strength":"2"},
+							
+							{"source":"5","target":"6","strength":"2"},
+							{"source":"5","target":"6","strength":"4"},
+							{"source":"6","target":"5","strength":"2"},
+							{"source":"6","target":"5","strength":"4"},
+							
+							{"source":"7","target":"8","strength":"2"},
+							{"source":"7","target":"8","strength":"4"},
+							{"source":"8","target":"7","strength":"4"},
+							{"source":"8","target":"7","strength":"2"},
+
+
+						]};
+						 
+
+			var pageGraph = d3.select("#pagegraph").append("svg")
+					.attr("class", "graph")
+					.attr("height", 1000)
+					.attr("width", 1000);	
+			// generate the colours
+			var colours = d3.scale.category20();
+
+			var force = d3.layout.force()
+					.charge(-120)
+					.linkDistance(30)
+					.size(1000,1000); // change this if the slide or graph change sizes!
+
+
+
 		</script>
 	</body>
 </html>
