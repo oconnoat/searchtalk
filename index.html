@@ -191,6 +191,12 @@
 					<p>The World Wide Web is a <a href="http://www.w3.org/WhatIs.html">Hypertext</a> system. It has no 
 				</div>
 			</div>
+			<div id="webGraph" class="step" data-x="1200" data-y="4000" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px">
+					<div id="pagegraph"></div>
+				</div>
+			</div>
+
 		</div>
 		<!-- Impress Javascript -->
 		<!-- load impress -->
@@ -232,46 +238,8 @@
 
 //////////////////////////
 			// force-directed graph of pages
-				var pageData = { "nodes":
-							[{"url":"A","group":1},
-							{"url":"B","group":1},
-							{"url":"C","group":1},
-							{"url":"D","group":1},
-							{"url":"E","group":2},
-							{"url":"F","group":2},
-							{"url":"G","group":3},
-							{"url":"H","group":3}],
-						"links":
-							[{"source":"1","target":"2","strength":"2"},
-							{"source":"1","target":"3","strength":"4"},
-							{"source":"1","target":"4","strength":"4"},
-							{"source":"2","target":"3","strength":"2"},
-							{"source":"2","target":"4","strength":"4"},
-							{"source":"2","target":"1","strength":"2"},
-							{"source":"3","target":"2","strength":"2"},
-							{"source":"3","target":"4","strength":"4"},
-							{"source":"3","target":"1","strength":"2"},
-							{"source":"4","target":"3","strength":"4"},
-							{"source":"4","target":"2","strength":"2"},
-							{"source":"4","target":"1","strength":"2"},
-							
-							{"source":"1","target":"5","strength":"4"},
-							{"source":"1","target":"8","strength":"2"},
-							
-							{"source":"5","target":"6","strength":"2"},
-							{"source":"5","target":"6","strength":"4"},
-							{"source":"6","target":"5","strength":"2"},
-							{"source":"6","target":"5","strength":"4"},
-							
-							{"source":"7","target":"8","strength":"2"},
-							{"source":"7","target":"8","strength":"4"},
-							{"source":"8","target":"7","strength":"4"},
-							{"source":"8","target":"7","strength":"2"},
-
-
-						]};
+				var pageData = {"nodes":[{"url":"A","group":1},{"url":"B","group":1},{"url":"C","group":1},{"url":"D","group":1},{"url":"E","group":2},{"url":"F","group":2},{"url":"G","group":3},{"url":"H","group":3}],"links":[{"source":"1","target":"2","value":"2"},{"source":"1","target":"3","value":"4"},{"source":"1","target":"4","value":"4"},{"source":"2","target":"3","value":"2"},{"source":"2","target":"4","value":"4"},{"source":"2","target":"1","value":"2"},{"source":"3","target":"2","value":"2"},{"source":"3","target":"4","value":"4"},{"source":"3","target":"1","value":"2"},{"source":"4","target":"3","value":"4"},{"source":"4","target":"2","value":"2"},{"source":"4","target":"1","value":"2"},{"source":"1","target":"5","value":"4"},{"source":"1","target":"8","value":"2"},{"source":"5","target":"6","value":"2"},{"source":"5","target":"6","value":"4"},{"source":"6","target":"5","value":"2"},{"source":"6","target":"5","value":"4"}]};
 						 
-
 			var pageGraph = d3.select("#pagegraph").append("svg")
 					.attr("class", "graph")
 					.attr("height", 1000)
@@ -279,12 +247,51 @@
 			// generate the colours
 			var colours = d3.scale.category20();
 
+			//declare the layout
 			var force = d3.layout.force()
 					.charge(-120)
 					.linkDistance(30)
 					.size(1000,1000); // change this if the slide or graph change sizes!
+			
+						var link = pageGraph.selectAll(".link")
+						.data(pageData.links)
+						.enter()
+						.append("line")
+						.attr("class","link")
+						.style("stroke","#999")
+						.style("stroke-opacity","0.6")
+						.style("stroke-width",function(d){return Math.sqrt(d.value)});
+
+				var node = pageGraph.selectAll(".node")
+						.data(pageData.nodes)
+						.enter()
+						.append("circle")
+						.attr("class","node")
+						.attr("r","100")
+						.style("stroke","#eee")
+						.style("stroke-width","10")
+						.style("fill", function(d){return colours(d.group);})
+						.call(force.drag);
+
+				node.append("title")
+				    .text(function(d){return d.url;});
 
 
+	    			force.nodes(pageData.nodes)
+			     	.links(pageData.links)
+			     	.start();
+
+				force.on("tick", function() {
+					link.attr("x1", function(d) { 
+						return d.source.x; })
+					    .attr("y1", function(d) { return d.source.y; })
+					    .attr("x2", function(d) { return d.target.x; })
+					    .attr("y2", function(d) { return d.target.y; });
+
+					node.attr("cx", function(d) { return d.x; })
+					.attr("cy", function(d) { return d.y; });
+				});
+	
 
 		</script>
 	</body>
