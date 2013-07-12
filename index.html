@@ -188,14 +188,84 @@
 			</div>
 			<div id="webSearch" class="step" data-x="1200" data-y="4000">
 				<div style="width:1000px; font-size:32px">
-					<p>The World Wide Web is a <a href="http://www.w3.org/WhatIs.html">Hypertext</a> system. It has no 
+					<p>The World Wide Web is a <strong>bare-bones</strong> <a href="http://www.w3.org/WhatIs.html">Hypertext</a> system.  
 				</div>
 			</div>
-			<div id="webGraph" class="step" data-x="1200" data-y="4000" data-rotate-y="90">
+			<div id="webGraph" class="step" data-x="1200" data-y="4000" data-z="-1000" data-rotate-y="90">
 				<div style="width:1000px; font-size:32px">
-					<div id="pagegraph"></div>
+					<div id="pagegraph" style="float:left"></div>
+					<div id="graphremarks" style="float:right; background-color:#fff;width:490px;height:500px">
+						<ul>
+							<li>No content registry</li>
+							<li>Unidirectional links</li>
+							<li>No link relationships</li>
+							<li>No (little) meta-data </li>
+						</ul>
+					</div>
 				</div>
 			</div>
+			<div id="pageRankSurfer" class="step" data-x="1200" data-y="5000">
+				<div style="width:1000px; font-size:32px">
+										<p><img src="assets/images/bored.jpg" width="400" style="float:left" />
+										Imagine a web surfer who clicks at random, eventually getting bored.
+										<ul style="float:left">
+											<li>Which sites is he most likely to find?</li>
+											<li>How quickly does he tire?</li>
+											<li>What does this tell us?</li>
+										</ul>	
+										</p>
+					<p style="font-size:12px;float:right"><a href="http://www.flickr.com/photos/fod/201259829/">Photo CC-BY-SA by fod on flickr</a></p>
+				</div>
+			</div>		
+			<div id="pageRankMarkov" class="step" data-x="1200" data-y="5000" data-z="-1000" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px">
+					<h3>Aside: Markov chains</h3>
+					<p>Markov Chains are systems which undergo transitions to a finite set of states with certain probabilities based only on the current state.
+					They can be used to simulate sentences, markets, users, amongst countless other examples.</p>
+				</div>
+			</div>		
+			<div id="pageRankInsight" class="step" data-x="1200" data-y="6000">
+				<div style="width:1000px; font-size:32px">
+				<strong>Key Insight:</strong> when people write pages, they link to good resources, which are often related.	
+				<ul>
+					<li>We can therefore imagine the 'value' of a page as being based on the reputation of the pages that link to it.</li>
+					<li>The HITS algorithm is a similar approach, which is more explicit.</li>
+				</ul>
+				</div>
+			</div>
+			<div id="pageRankRemarks" class="step" data-x="1200" data-y="7000">
+				<div style="width:1000px; font-size:32px">
+				<h3>Pagerank has had an incredible impact on the structure of the Web</h3>
+				<ul>
+					<li>Early on, it could be 'gamed' (Google-<a href="http://en.wikipedia.org/wiki/Google_bomb">Bombing</a>, and -<a href="http://en.wikipedia.org/wiki/Googlewhack">whacking</a>)</li>
+					<li>There is a continuous 'arms race' between SEO (Search Engine Optimisation) and the company</li>
+					<li>What's the effect of automatic/semi-automatic authoring tools, such as CMS?</li>
+					<li><a href="http://www.gabrielweinberg.com/blog/2012/11/magic-keywords-on-google-and-the-consequences-of-search-tailoring-results.html">Personalisation and other signals</a> are now extremely important.</li>
+				</ul>
+				</div>
+			</div>
+			<div id="irRollYourOwn" class="step" data-x="1200" data-y="8000">
+				<div style="width:1000px; font-size:32px">
+					<h3>Rolling your own (providing a modern search engine)</h3>
+					<p><a href="http://lucene.apache.org/">Lucene</a>, especially <a href="http://lucene.apache.org/solr/">Solr</a>
+
+					<a href="http://www.elasticsearch.org/">Elastic Search</a>
+					<a href="http://stackoverflow.com/questions/10213009/solr-vs-elasticsearch">A good discussion on the merits of each (and some others)</a></p>
+					<p>There are many others, <a href="http://www.lemurproject.org/">for example if you want to do algorithm research</a>, or fine-tune the system. It's also worth noting that many systems already embed Lucene/Solr, or <a href="https://drupal.org/project/ApacheSolr">permit it.</a></p>
+				</div>
+			</div>
+			<div id="irConclusions" class="step" data-x="1200" data-y="9000">
+				<div style="width:1000px; font-size:32px">
+					<h3>Conclusions.</h3>
+					The content you offer needs to be <strong>available</strong>, <strong>described</strong> and <strong>discoverable</strong>.
+				<ul>
+					<li>How will your users find the content, searching the web (while bored?)</li>
+					<li>How will your users access the content, once they find it?</li>
+					<li>How will your users describe what they want from your content?</li>
+				</ul>
+				</div>	
+			</div>
+
 
 		</div>
 		<!-- Impress Javascript -->
@@ -238,58 +308,84 @@
 
 //////////////////////////
 			// force-directed graph of pages
-				var pageData = {"nodes":[{"url":"A","group":1},{"url":"B","group":1},{"url":"C","group":1},{"url":"D","group":1},{"url":"E","group":2},{"url":"F","group":2},{"url":"G","group":3},{"url":"H","group":3}],"links":[{"source":"1","target":"2","value":"2"},{"source":"1","target":"3","value":"4"},{"source":"1","target":"4","value":"4"},{"source":"2","target":"3","value":"2"},{"source":"2","target":"4","value":"4"},{"source":"2","target":"1","value":"2"},{"source":"3","target":"2","value":"2"},{"source":"3","target":"4","value":"4"},{"source":"3","target":"1","value":"2"},{"source":"4","target":"3","value":"4"},{"source":"4","target":"2","value":"2"},{"source":"4","target":"1","value":"2"},{"source":"1","target":"5","value":"4"},{"source":"1","target":"8","value":"2"},{"source":"5","target":"6","value":"2"},{"source":"5","target":"6","value":"4"},{"source":"6","target":"5","value":"2"},{"source":"6","target":"5","value":"4"}]};
+				var pageDatanodes = [
+						     {"url":"A","group":1}, //0
+						     {"url":"B","group":1}, //1
+						     {"url":"C","group":3}, //2
+						     {"url":"D","group":1}, //3
+						     {"url":"E","group":1}, //4
+						     {"url":"F","group":1}, //5
+						     {"url":"G","group":1}, //6
+						     {"url":"H","group":1}, //7
+						     {"url":"I","group":1}, //8
+						     {"url":"J","group":1}, //9
+						     {"url":"J","group":1}, //10
+						     {"url":"J","group":2}  //11
+						   ];
+
+				var pageDatalinks = [
+						     {"source": 0, "target": 1, "value": 20}, 
+						     {"source": 1, "target": 2, "value": 20},
+						     {"source": 2, "target": 3, "value": 20},
+						     {"source": 2, "target": 4, "value": 20},
+						     {"source": 2, "target": 5, "value": 20},
+						     {"source": 4, "target": 5, "value": 20},
+						     {"source": 3, "target": 6, "value": 20},
+						     {"source": 6, "target": 7, "value": 20},
+						     {"source": 6, "target": 10, "value": 20},
+						     {"source": 7, "target": 8, "value": 20},
+						     {"source": 3, "target": 9, "value": 20}
+						    ];
 						 
 			var pageGraph = d3.select("#pagegraph").append("svg")
 					.attr("class", "graph")
-					.attr("height", 1000)
-					.attr("width", 1000);	
+					.style("border", "1px solid #000")
+					.style("background-color", "rgba(256,256,256,0.8)")
+					.attr("height", 500)
+					.attr("width", 500);	
 			// generate the colours
-			var colours = d3.scale.category20();
+			var colours = d3.scale.category10();
 
 			//declare the layout
 			var force = d3.layout.force()
 					.charge(-120)
-					.linkDistance(30)
-					.size(1000,1000); // change this if the slide or graph change sizes!
-			
-						var link = pageGraph.selectAll(".link")
-						.data(pageData.links)
-						.enter()
-						.append("line")
-						.attr("class","link")
-						.style("stroke","#999")
-						.style("stroke-opacity","0.6")
-						.style("stroke-width",function(d){return Math.sqrt(d.value)});
+					.linkDistance(60)
+					.size([500,500]); // change this if the slide or graph change sizes!
+		
+	    		force.nodes(pageDatanodes)
+			     	.links(pageDatalinks)
+			     	.start();	
 
-				var node = pageGraph.selectAll(".node")
-						.data(pageData.nodes)
-						.enter()
-						.append("circle")
-						.attr("class","node")
-						.attr("r","100")
-						.style("stroke","#eee")
-						.style("stroke-width","10")
-						.style("fill", function(d){return colours(d.group);})
-						.call(force.drag);
+			var link = pageGraph.selectAll(".link")
+					.data(pageDatalinks)
+					.enter()
+					.append("line")
+					.attr("class","link")
+					.style("stroke","#999")
+					.style("stroke-opacity",0.6)
+					.style("stroke-width",function(d){return Math.sqrt(d.value)});
 
-				node.append("title")
-				    .text(function(d){return d.url;});
+			var node = pageGraph.selectAll(".node")
+					.data(pageDatanodes)
+					.enter()
+					.append("circle")
+					.attr("class","node")
+					.attr("r",8)
+					.style("stroke","#eee")
+					.style("stroke-width",2)
+					.style("fill", function(d){return colours(d.group);})
+					.call(force.drag);
 
+			node.append("title")
+			    .text(function(d){return d.url;});
+			force.on("tick", function() {
+				link.attr("x1", function(d) { return d.source.x; })
+				    .attr("y1", function(d) { return d.source.y; })
+				    .attr("x2", function(d) { return d.target.x; })
+				    .attr("y2", function(d) { return d.target.y; });
 
-	    			force.nodes(pageData.nodes)
-			     	.links(pageData.links)
-			     	.start();
-
-				force.on("tick", function() {
-					link.attr("x1", function(d) { 
-						return d.source.x; })
-					    .attr("y1", function(d) { return d.source.y; })
-					    .attr("x2", function(d) { return d.target.x; })
-					    .attr("y2", function(d) { return d.target.y; });
-
-					node.attr("cx", function(d) { return d.x; })
-					.attr("cy", function(d) { return d.y; });
+       			        node.attr("cx", function(d) { return d.x; })
+				    .attr("cy", function(d) { return d.y; });
 				});
 	
 
