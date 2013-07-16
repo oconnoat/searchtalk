@@ -2,6 +2,11 @@
 <html lang="en">
 	<head>
 		<title>Introduction to IR, MT &amp; Semantics -- Alexander O'Connor </title>
+        <style>
+            div.step div{
+                background-color:rgba(256,256,256,0.8);
+            }
+        </style>
 	</head>
 	<body>
 		<div id="impress">
@@ -114,7 +119,7 @@
 					</ul>
 				</div>
 			</div>
-			<div id="IDFAlgo" class="step" data-x="1200" data-y="2000" data-z="-1000" data-rotate-y="90"> 
+			<div id="IDFAlgo" class="step" data-x="1200" data-y="2000" data-z="1000" data-rotate-y="90"> 
 				<div style="width:1000px; font-size:32px">
 					<h3>What words are most important?</h3>
 					<ul>
@@ -125,7 +130,7 @@
 					</ul>
 				</div>
 			</div>
-			<div id="IDFAlgo2" class="step" data-x="1200" data-y="2000" data-z="-2500"  data-rotate-y="90">
+			<div id="IDFAlgo2" class="step" data-x="1200" data-y="2000" data-z="2500"  data-rotate-y="90">
 				<div style="width:1000px; font-size:32px">
 					<h3>What words are most important?</h3>
 					<ul>
@@ -134,7 +139,7 @@
 					</ul>
 				</div>
 			</div>
-			<div id="TFIDFAlgo" class="step" data-x="1200" data-y="2000"  data-z="-4000" data-rotate-y="90">
+			<div id="TFIDFAlgo" class="step" data-x="1200" data-y="2000"  data-z="4000" data-rotate-y="90">
 				<div style="width:1000px; font-size:32px">
 					<h3>How do we match the Query to the document?</h3>
 					<ul>
@@ -266,6 +271,100 @@
 				</div>	
 			</div>
 
+<!-- Machine Translation -->
+<div id="MTIntro" class="step" data-x="2400">
+    <div style="width:1000px; font-size:32px">
+        <h3>Machine Translation.</h3>
+        <p><em>This material is based on slides and a tutorial by Dr. Declan Groves. I would like to gratefully acknowledge his generosity in permitting me to use and adapt them.</em></p>
+    </div>
+</div>
+<div id="MTMotivation" class="step" data-x="2400" data-y="1200">
+    <div style="width:1000px; font-size:32px">
+        <h3>What does a universal translator need to do to work?</h3>
+        <p><img src="assets/images/startrek.jpg" title="Combadge Translator" alt="Picture of Jean-Luc Picard" width="400" style="" /></p>
+        <p style="font-size:16px">Star Trek is copyright &copy; CBS Television Studios</p>
+    </div>
+</div>
+<div id="MTMeaning" class="step" data-x="2400" data-y="2400">
+    <div style="width:1000px; font-size:32px">
+        <p><em>Poetry is what gets lost in translation.</em>&mdash;Robert Frost.</p>        
+    </div>
+</div>
+<div id="MTApproaches" class="step" data-x="2400" data-y="2400">
+    <div style="width:1000px; font-size:32px">
+            <h3>Approaches to Machine Translation</h3>
+        <p>Translate from <strong>source language</strong> to <strong>target language</strong></p>
+            <ul>
+                <li>Rule-Based</li>
+                <li>Example-Based</li>
+                <li>Statistical</li>
+            </ul>
+       </div>
+</div>
+<div id="MTRule" class="step" data-x="2400" data-y="2400" data-z="-1200" data-rotate-y="90">
+    <div style="width:1000px; font-size:32px;background-color:#eee">
+        <div style="width:400px; float:left;">
+            <h3>Given</h3>
+            <ul>
+                <li>A dictionary from source to target</li>
+                <li>Rules for recognising terms in the Source Language</li>
+                <li>Rules for constructing sentences in the Target Language</li>
+            </ul>
+        </div>
+        <div style="width:400px; float:left;">
+            <h3>Process</h3>
+            <ul>
+                <li>Identify the terms in the sentence of the Source Language</li>
+                <li>Translate the words (with the <em>correct sense</em>)</li>
+                <li>Construct the sentence in the Target Language</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="MTExample" class="step" data-x="2400" data-y="2400" data-z="-2400" data-rotate-y="90">
+    <div style="width:1000px; font-size:32px;background-color:#eee">
+         <div style="width:400px; float:left;">
+            <h3>Given</h3>
+            <ul>
+                <li>A large number of example translations</li>
+                <li>Rules for recognising similar sentences in the same language</li>
+                <li>Rules for thesaurus substitution</li>
+            </ul>
+        </div>
+        <div style="width:400px; float:left;">
+            <h3>Process</h3>
+            <ul>
+                <li>Identify the most similar sentence in the example list.</li>
+                <li>Find the translations for the substitute terms</li>
+                <li>Incorporate the substitutions</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div id="MTStat" class="step" data-x="2400" data-y="2400" data-z="-3600" data-rotate-y="90">
+    <div style="width:1000px; font-size:32px; background-color:#eee">
+         <div style="width:400px; float:left;">
+            <h3>Given</h3>
+            <ul>
+                <li>An appropriate parallel corpus</li>
+                <li>A statistical model of language</li>
+            </ul>
+        </div>
+        <div style="width:400px; float:left;">
+            <h3>Process</h3>
+            <ul>
+                <li>Choose the target sentence/phrase/word which is <strong>most likely</strong> to be the translation of the source</li>
+                <li>Apply any clean-up rules</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Semantic Web -->
+<div id="SemanticsIntro" class="step" data-x="3600">
+    <div style="width:1000px; font-size:32px">
+        The Semantic Approach
+    </div>
+</div>
 
 		</div>
 		<!-- Impress Javascript -->
