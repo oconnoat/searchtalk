@@ -2,6 +2,11 @@
 <html lang="en">
 	<head>
 		<title>Introduction to IR, MT &amp; Semantics -- Alexander O'Connor </title>
+        <style>
+            div.step div{
+                background-color:rgba(256,256,256,0.8);
+            }
+        </style>
 	</head>
 	<body>
 		<div id="impress">
@@ -114,7 +119,7 @@
 					</ul>
 				</div>
 			</div>
-			<div id="IDFAlgo" class="step" data-x="1200" data-y="2000" data-z="-1000" data-rotate-y="90"> 
+			<div id="IDFAlgo" class="step" data-x="1200" data-y="2000" data-z="1000" data-rotate-y="90"> 
 				<div style="width:1000px; font-size:32px">
 					<h3>What words are most important?</h3>
 					<ul>
@@ -125,7 +130,7 @@
 					</ul>
 				</div>
 			</div>
-			<div id="IDFAlgo2" class="step" data-x="1200" data-y="2000" data-z="-2500"  data-rotate-y="90">
+			<div id="IDFAlgo2" class="step" data-x="1200" data-y="2000" data-z="2500"  data-rotate-y="90">
 				<div style="width:1000px; font-size:32px">
 					<h3>What words are most important?</h3>
 					<ul>
@@ -134,7 +139,7 @@
 					</ul>
 				</div>
 			</div>
-			<div id="TFIDFAlgo" class="step" data-x="1200" data-y="2000"  data-z="-4000" data-rotate-y="90">
+			<div id="TFIDFAlgo" class="step" data-x="1200" data-y="2000"  data-z="4000" data-rotate-y="90">
 				<div style="width:1000px; font-size:32px">
 					<h3>How do we match the Query to the document?</h3>
 					<ul>
@@ -152,14 +157,316 @@
 						<li><strong>Some improvements</strong></li>
 						<li>Eliminate the most common words of all (<em>stop words</em>)</li>
 						<li>Stem words (remove <em>-ing</em>, etc.)</li>
-						<li>Look at groups of words (<em>n-grams</em>)</li>
-						<li>Fix spelling errors (<em>edit distance</em>)</li>
+						<li>Look at groups of words (<em><a href="http://books.google.com/ngrams">n-grams</a></em>)</li>
+						<li><a href="http://norvig.com/spell-correct.html">Fix spelling errors</a> (<em><a href="http://www.let.rug.nl/kleiweg/lev/">edit distance</a></em>)</li>
 						<li>Use document structure (<em>Title, link text, metadata</em>)</li>
-						<li>Smarter, probablistic algorithm (<em>Okapi BM25F</em>)</li>
+						<li>Smarter, probablistic algorithm (<em>Okapi <a href="http://nlp.uned.es/~jperezi/Lucene-BM25/">BM25F</a></em>)</li>
 					</ul>
 				</div>
 			</div>
+			<div id="stopwords" class="step" data-x="1200" data-y="3000" data-z="-1000" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px; background-color:rgba(256,256,256,0.8)">
+					<p style="background-color:#eee;"><a href="http://lucene.apache.org/">Apache Lucene</a> <a href="http://svn.apache.org/repos/asf/lucene/dev/trunk/lucene/analysis/common/src/java/org/apache/lucene/analysis/core/StopAnalyzer.java">default stopwords:</a><br />
+						a, an, and, are, as, at, be, but, by,<br />
+						for, if, in, into, is, it,<br />
+						no, not, of, on, or, such,<br />
+						that, the, their, then, there, these,</br >
+      						they, this, to, was, will, with</p>	
+						<p>More aggressive lists can be extremely powerful. (<a href="http://www.matthewjockers.net/macroanalysisbook/expanded-stopwords-list/">XIX<sup>th</sup>C. fiction.</a>)</p>
+					<a href="#ContentBased">&crarr;</a>
+				</div>
 
+			</div>
+			<div id="stemmers" class="step" data-x="1200" data-y="3000" data-z="-2500" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px">
+					<div style="background-color:#eee">
+					<p>Stemmers and <a href="http://en.wikipedia.org/wiki/Lemmatisation">Lemmatisers</a> are used to group together words that differ only for grammatical reasons (plurals, verbs, nouns, adjectives, adverbs).</p>
+						<blockquote><em>Since it effectively provides a ‘suffix STRIPPER GRAMmar’, I had toyed with the idea of calling it ‘strippergram’, but good sense has prevailed, and so it is ‘Snowball’ named as a tribute to SNOBOL, the excellent string handling language of Messrs Farber, Griswold, Poage and Polonsky from the 1960s.</em>&mdash;Martin Porter</blockquote>
+					</div>
+										<ul>
+						<li>The most prominent stemmer is probably <a href="http://snowball.tartarus.org/index.php">Snowball</a></li>
+						<li>You can also train them up using machine learning</li>
+						<li><strong>Depend on language, normalisation, vocabulary, etc.</strong></li>
+					</ul>
+					<a href="#ContentBased">&crarr;</a>
+				</div>
+			</div>
+			<div id="webSearch" class="step" data-x="1200" data-y="4000">
+				<div style="width:1000px; font-size:32px">
+					<p>The World Wide Web is a <strong>bare-bones</strong> <a href="http://www.w3.org/WhatIs.html">Hypertext</a> system.  
+				</div>
+			</div>
+			<div id="webGraph" class="step" data-x="1200" data-y="4000" data-z="-1000" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px">
+					<div id="pagegraph" style="float:left"></div>
+					<div id="graphremarks" style="float:right; background-color:#fff;width:490px;height:500px">
+						<ul>
+							<li>No content registry</li>
+							<li>Unidirectional links</li>
+							<li>No link relationships</li>
+							<li>No (little) meta-data </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="pageRankSurfer" class="step" data-x="1200" data-y="5000">
+				<div style="width:1000px; font-size:32px">
+										<p><img src="assets/images/bored.jpg" width="400" style="float:left" />
+										Imagine a web surfer who clicks at random, eventually getting bored.
+										<ul style="float:left">
+											<li>Which sites is he most likely to find?</li>
+											<li>How quickly does he tire?</li>
+											<li>What does this tell us?</li>
+										</ul>	
+										</p>
+					<p style="font-size:12px;float:right"><a href="http://www.flickr.com/photos/fod/201259829/">Photo CC-BY-SA by fod on flickr</a></p>
+				</div>
+			</div>		
+			<div id="pageRankMarkov" class="step" data-x="1200" data-y="5000" data-z="-1000" data-rotate-y="90">
+				<div style="width:1000px; font-size:32px">
+					<h3>Aside: Markov chains</h3>
+					<p>Markov Chains are systems which undergo transitions to a finite set of states with certain probabilities based only on the current state.
+					They can be used to simulate sentences, markets, users, amongst countless other examples.</p>
+				</div>
+			</div>		
+			<div id="pageRankInsight" class="step" data-x="1200" data-y="6000">
+				<div style="width:1000px; font-size:32px">
+				<strong>Key Insight:</strong> when people write pages, they link to good resources, which are often related.	
+				<ul>
+					<li>We can therefore imagine the 'value' of a page as being based on the reputation of the pages that link to it.</li>
+					<li>The HITS algorithm is a similar approach, which is more explicit.</li>
+				</ul>
+				</div>
+			</div>
+			<div id="pageRankRemarks" class="step" data-x="1200" data-y="7000">
+				<div style="width:1000px; font-size:32px">
+				<h3>Pagerank has had an incredible impact on the structure of the Web</h3>
+				<ul>
+					<li>Early on, it could be 'gamed' (Google-<a href="http://en.wikipedia.org/wiki/Google_bomb">Bombing</a>, and -<a href="http://en.wikipedia.org/wiki/Googlewhack">whacking</a>)</li>
+					<li>There is a continuous 'arms race' between SEO (Search Engine Optimisation) and the company</li>
+					<li>What's the effect of automatic/semi-automatic authoring tools, such as CMS?</li>
+					<li><a href="http://www.gabrielweinberg.com/blog/2012/11/magic-keywords-on-google-and-the-consequences-of-search-tailoring-results.html">Personalisation and other signals</a> are now extremely important.</li>
+				</ul>
+				</div>
+			</div>
+			<div id="irRollYourOwn" class="step" data-x="1200" data-y="8000">
+				<div style="width:1000px; font-size:32px">
+					<h3>Rolling your own (providing a modern search engine)</h3>
+					<p><a href="http://lucene.apache.org/">Lucene</a>, especially <a href="http://lucene.apache.org/solr/">Solr</a>
+
+					<a href="http://www.elasticsearch.org/">Elastic Search</a>
+					<a href="http://stackoverflow.com/questions/10213009/solr-vs-elasticsearch">A good discussion on the merits of each (and some others)</a></p>
+					<p>There are many others, <a href="http://www.lemurproject.org/">for example if you want to do algorithm research</a>, or fine-tune the system. It's also worth noting that many systems already embed Lucene/Solr, or <a href="https://drupal.org/project/ApacheSolr">permit it.</a></p>
+				</div>
+			</div>
+			<div id="irConclusions" class="step" data-x="1200" data-y="9000">
+				<div style="width:1000px; font-size:32px">
+					<h3>Conclusions.</h3>
+					The content you offer needs to be <strong>available</strong>, <strong>described</strong> and <strong>discoverable</strong>.
+				<ul>
+					<li>How will your users find the content, searching the web (while bored?)</li>
+					<li>How will your users access the content, once they find it?</li>
+					<li>How will your users describe what they want from your content?</li>
+				</ul>
+				</div>	
+			</div>
+
+<!-- Machine Translation -->
+<div id="MTIntro" class="step" data-x="2400">
+    <div style="width:1000px; font-size:32px">
+        <h3>Machine Translation.</h3>
+        <p><em>This material is based on slides and a tutorial by Dr. Declan Groves. I would like to gratefully acknowledge his generosity in permitting me to use and adapt them.</em></p>
+    </div>
+</div>
+<div id="MTMotivation" class="step" data-x="2400" data-y="1200">
+    <div style="width:1000px; font-size:32px">
+        <h3>What does a universal translator need to do to work?</h3>
+        <p><img src="assets/images/startrek.jpg" title="Combadge Translator" alt="Picture of Jean-Luc Picard" width="400" style="" /></p>
+        <p style="font-size:16px">Star Trek is copyright &copy; CBS Television Studios</p>
+    </div>
+</div>
+<div id="MTApproaches" class="step" data-x="2400" data-y="2400">
+    <div style="width:1000px; font-size:32px">
+            <h3>Approaches to Machine Translation</h3>
+         <p><em>Poetry is what gets lost in translation.</em>&mdash;Robert Frost.</p>        
+        <p>Translate from <strong>source language</strong> to <strong>target language</strong></p>
+            <ul>
+                <li>Rule-Based</li>
+                <li>Example-Based</li>
+                <li>Statistical</li>
+            </ul>
+       </div>
+</div>
+<div id="MTRule" class="step" data-x="2400" data-y="2400" data-z="1200" data-rotate-y="-90">
+    <div style="width:1000px; font-size:32px;background-color:#eee">
+        <h3>Rule-based MT</h3>
+        <div style="width:400px; float:left;">
+            <h3>Given</h3>
+            <ul>
+                <li>A dictionary from source to target</li>
+                <li>Rules for recognising terms in the Source Language</li>
+                <li>Rules for constructing sentences in the Target Language</li>
+            </ul>
+        </div>
+        <div style="width:400px; float:left;">
+            <h3>Process</h3>
+            <ul>
+                <li>Identify the terms in the sentence of the Source Language</li>
+                <li>Translate the words (with the <em>correct sense</em>)</li>
+                <li>Construct the sentence in the Target Language</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="MTExample" class="step" data-x="2400" data-y="2400" data-z="2400" data-rotate-y="-90">
+    <div style="width:1000px; font-size:32px;background-color:#eee">
+         <h3>Example-based MT</h3>
+         <div style="width:400px; float:left;">
+            <h3>Given</h3>
+            <ul>
+                <li>A large number of example translations</li>
+                <li>Rules for recognising similar sentences in the same language</li>
+                <li>Rules for thesaurus substitution</li>
+            </ul>
+        </div>
+        <div style="width:400px; float:left;">
+            <h3>Process</h3>
+            <ul>
+                <li>Identify the most similar sentence in the example list.</li>
+                <li>Find the translations for the substitute terms</li>
+                <li>Incorporate the substitutions</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div id="MTStat" class="step" data-x="2400" data-y="2400" data-z="3600" data-rotate-y="-90">
+    <div style="width:1000px; font-size:32px; background-color:#eee">
+         <h3>Statistical MT</h3>
+         <div style="width:400px; float:left;">
+            <h3>Given</h3>
+            <ul>
+                <li>An appropriate parallel corpus</li>
+                <li>A statistical model of language</li>
+            </ul>
+        </div>
+        <div style="width:400px; float:left;">
+            <h3>Process</h3>
+            <ul>
+                <li>Choose the target sentence/phrase/word which is <strong>most likely</strong> to be the translation of the source</li>
+                <li>Apply any clean-up rules</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="whyMTisHard" class="step"  data-x="2400" data-y="3600">
+    <div style="width:1000px; font-size:32px">
+        <h3>Some common problems</h3>
+        <p style="text-align:center">I saw the man with the telescope</p>
+        <p style="text-align:center">Tá<em>(is)</em> ocras<em>(hunger)</em> orm<em>(on me)</em> &hArr; I am hungry.</p>
+        <p>Which sense?</p><ul style="margin-left:40%"><li><a href="http://wordnetweb.princeton.edu/perl/webwn?s=bank">bank</a></li><li><a href="http://wordnetweb.princeton.edu/perl/webwn?s=dive">dive</a></li></ul>
+        <p>Figures of Speech &amp; Contextual References:</p><ul style="margin-left:40%"><li> 'Downing St.'</li><li>'The President'</li> <li>'She'</li></ul>
+    </div>
+</div>
+<div id="HardExamples" class="step"  data-x="2400" data-y="3600" data-z="-1200" data-rotate-y="90">
+    <div style="width:1000px; font-size:32px">
+        <img src="assets/images/sigurros.jpg" alt="Google Translation Error between sigur ros and foo fighters" title="context in translation" />
+    </div>
+</div>
+<div id="Corpus" class="step"  data-x="2400" data-y="4800">
+    <div style="width:1000px; font-size:32px">
+        <h3>Aligned Bilingual Corpora</h3>    
+        <ul>
+            <li>A <em>document-aligned bilingual corpus</em> corresponds on a document level
+            <ul><li>For translation, we required <em>sentence-aligned</em> bilingual corpora
+            The sentence on line 1 in the source language text corresponds to (i.e. is a translation of) the sentence on line 1 in the target language text etc.</li>
+            <li>Often referred to as parallel aligned corpora</li></ul></li>
+        <li>Sentence aligned bilingual parallel corpora are essential for statistical machine translation</li>
+    </ul>
+</div>
+</div>
+<div id="previousTranslations" class="step" data-y="6000" data-x="2400">
+    <div style="width:1000px; font-size:32px">
+    <h3>Using Previous Translation</h3>
+    <div style="width:600px; float:left">
+        <p>Suppose we already know <em>(from a sentence-aligned bilingual corpus)</em> that:</p>
+    <ul>
+      <li>"dog" &hArr; "madra"</li>
+      <li>"I have a cat." &hArr; "Tá cát agam."</li>
+      <li>We can theoretically translate:<br />
+      "I have a dog"&hArr;"Tá madra agam."</li>
+    </ul>
+</div>
+<img src="assets/images/translate.png" width="400" style="float:right"  alt="image of SMT" title="image of smt" />
+<p style="clear:left">Even though we have never seen "I have a dog" before, statistical machine translation induces information about unseen input, based on previously known translations
+<br /><em>(Primarily co-occurrence statistics; takes contextual information into account)</em></p> 
+</div>
+</div>        
+<div id="StatisticalProcess1" class="step" data-x="2400" data-y="6000" data-rotate-y="-90" data-z="-1200">
+    <div style="width:1000px; font-size:32px">
+        <img src="assets/images/smt1.png" alt="SMT diagram"/>
+    </div>
+</div>
+<div id="SMTSize" class="step" data-x="2400" data-y="7200">
+    <div style="width:1000px; font-size:32px">
+        <p>All modern approaches are based on building translations for complete sentences by putting together smaller pieces of translation.</p>
+        <p>In reality SMT systems calculate much more complex statistical models over millions of sentence pairs for a pair of languages.</p>
+        <p>Upwards of 2M sentence pairs on average for large-scale systems.</p>
+
+        <p>Statistics calculated to represent:</p>
+        <ul><li>Word-to-word translation probabilities</li>
+            <li>Phrase-to-phrase translation probabilities</li>
+            <li>Word order probabilities</li>
+            <li>Structural information (i.e. syntactic information)</li>
+            <li>Fluency of the final output</li>
+        </ul>
+    </div>
+</div>
+<div id="MTEvaluation" class="step" data-x="2400" data-y="8400">
+     <div style="width:1000px; font-size:32px">
+         <h3>Human evaluation vs. automatic metrics</h3>
+         <p>Human evaluation is expensive, time-consuming, not 100% objective (two evaluators may not agree on their judgement of the same MT output)</p>
+         <p>Automatic evaluation is cheap, fast and consistent</p>
+         <ul><li>Judge the quality of an MT system by comparing its output against a human-produced “reference” translation</li>
+             <li> The more similar the translation is to the reference, the better</li>
+             <li>Wide-range of metrics, mostly focusing on exact word/phrase-level correspondences:
+             <ul>
+                 <li>Edit-distance metrics: Levenshtein, Word Error Rate (WER), Translation Error Rate (TER),</li>
+                 <li>Ngram-based metrics: Precision, Recall, F1-measure, GTM, BLEU</li>
+                 <li>Linguistic-based metrics: DELiC4MT</li>
+             </ul>
+         </li></ul>
+    </div> 
+</div>
+<div id="MTEvaluationExample" class="step" data-x="2400" data-y="8400" data-rotate-y="-90" data-z="1200">
+     <div style="width:1000px; font-size:32px">
+
+<h3>Example:</h3>
+<p><strong>Reference:</strong>  “the Iraqi weapons are to be handed over to the army within two weeks"
+    <br /><strong>MT output:</strong> "in two weeks Iraq’s weapons will give army"</p>
+
+    <p><strong>Possible metric components:</strong>
+<ul><li>Precision: correct words / total words in MT output</li>
+    <li>Recall: correct words / total words in reference</li>
+    <li>Combination of P and R (i.e. F1= 2PR/(P+R))</li>
+    <li>Levenshtein edit distance: number of insertions, deletions, substitutions required to transform MT output to the reference</li>
+</ul>
+</div>
+</div>
+
+<div id="MTConclusions" class="step" data-x="2400" data-y="9600">
+    <div style="width:1000px; font-size:32px; text-align:center">
+        <img src="assets/images/rubbish.png" alt="rubbish in; rubbish out" title="rubbish in; rubbish out" />
+        <p>Training MT systems yourself requires a large, relevent, aligned <a href="http://www.statmt.org/">data set</a> and <a href="https://code.google.com/p/moses-for-mere-mortals/">software</a>.</p>
+        <p><a href="https://developers.google.com/translate/v2/pricing">Google</a> and <a href="http://www.microsofttranslator.com/Widget/">Bing</a> Translate apis are a (<em>paid, generic</em>) option.</p>
+    </div>
+</div>
+
+<!-- Semantic Web -->
+<div id="SemanticsIntro" class="step" data-x="3600">
+    <div style="width:1000px; font-size:32px">
+        The Semantic Approach
+    </div>
+</div>
 
 		</div>
 		<!-- Impress Javascript -->
@@ -172,6 +479,7 @@
 		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 		<!-- d3 scripting -->
 		<script type="text/javascript">
+//////////////////////////
 			//histogram of the words in the poem
 			var poemdata = [{'count': 6, 'word': 'the'}, {'count': 4, 'word': 'a'}, {'count': 4, 'word': 'of'}, {'count': 3, 'word': 'me'}, {'count': 3, 'word': 'commemorate'}, {'count': 2, 'word': 'and'}, {'count': 2, 'word': 'in'}, {'count': 2, 'word': 'for'}, {'count': 2, 'word': 'no'}, {'count': 2, 'word': 'with'}, {'count': 2, 'word': 'by'}, {'count': 2, 'word': 'to'}, {'count': 2, 'word': 'who'}, {'count': 2, 'word': 'water'}, {'count': 2, 'word': 'o'}, {'count': 2, 'word': 'where'}, {'count': 1, 'word': 'heart'}, {'count': 1, 'word': 'fantastic'}, {'count': 1, 'word': 'far-flung'}, {'count': 1, 'word': 'just'}, {'count': 1, 'word': 'summer'}, {'count': 1, 'word': 'low'}, {'count': 1, 'word': 'lock'}, {'count': 1, 'word': 'is'}, {'count': 1, 'word': 'thus'}, {'count': 1, 'word': 'head'}, {'count': 1, 'word': 'erected'}, {'count': 1, 'word': 'prose'}, {'count': 1, 'word': 'way'}, {'count': 1, 'word': 'through'}, {'count': 1, 'word': 'at'}, {'count': 1, 'word': 'beautifully'}, {'count': 1, 'word': 'apologies'}, {'count': 1, 'word': 'towns'}, {'count': 1, 'word': 'speak'}, {'count': 1, 'word': 'canal'}, {'count': 1, 'word': 'bridges'}, {'count': 1, 'word': 'from'}, {'count': 1, 'word': 'stilly'}, {'count': 1, 'word': 'tremendous'}, {'count': 1, 'word': 'will'}, {'count': 1, 'word': 'swan'}, {'count': 1, 'word': 'passer-by'}, {'count': 1, 'word': 'canal-bank'}, {'count': 1, 'word': 'roars'}, {'count': 1, 'word': 'other'}, {'count': 1, 'word': "o'brien"}, {'count': 1, 'word': 'goes'}, {'count': 1, 'word': 'memory'}, {'count': 1, 'word': 'seat'}, {'count': 1, 'word': 'many'}, {'count': 1, 'word': 'dermot'}, {'count': 1, 'word': 'eyes'}, {'count': 1, 'word': 'his'}, {'count': 1, 'word': 'athy'}, {'count': 1, 'word': 'there'}, {'count': 1, 'word': 'mid-july'}, {'count': 1, 'word': 'falls'}, {'count': 1, 'word': 'preferably'}, {'count': 1, 'word': 'hero-courageous'}, {'count': 1, 'word': 'barge'}, {'count': 1, 'word': 'parnassian'}, {'count': 1, 'word': 'one'}, {'count': 1, 'word': 'bringing'}, {'count': 1, 'word': 'those'}, {'count': 1, 'word': 'look'}, {'count': 1, 'word': 'these'}, {'count': 1, 'word': 'sit'}, {'count': 1, 'word': 'greeny'}, {'count': 1, 'word': 'brother'}, {'count': 1, 'word': 'mrs'}, {'count': 1, 'word': 'niagarously'}, {'count': 1, 'word': 'mythologies'}, {'count': 1, 'word': 'so'}, {'count': 1, 'word': 'silence'}, {'count': 1, 'word': 'light'}, {'count': 1, 'word': 'islands'}, {'count': 1, 'word': 'tomb'}, {'count': 1, 'word': 'finds'}, {'count': 1, 'word': 'comes'}, {'count': 1, 'word': 'looks'}]	
 		
@@ -198,6 +506,90 @@
 					chart.select("text").text(datum.word+": "+datum.count);
 					//console.log(datum);
 				});
+
+//////////////////////////
+			// force-directed graph of pages
+				var pageDatanodes = [
+						     {"url":"A","group":1}, //0
+						     {"url":"B","group":1}, //1
+						     {"url":"C","group":3}, //2
+						     {"url":"D","group":1}, //3
+						     {"url":"E","group":1}, //4
+						     {"url":"F","group":1}, //5
+						     {"url":"G","group":1}, //6
+						     {"url":"H","group":1}, //7
+						     {"url":"I","group":1}, //8
+						     {"url":"J","group":1}, //9
+						     {"url":"J","group":1}, //10
+						     {"url":"J","group":2}  //11
+						   ];
+
+				var pageDatalinks = [
+						     {"source": 0, "target": 1, "value": 20}, 
+						     {"source": 1, "target": 2, "value": 20},
+						     {"source": 2, "target": 3, "value": 20},
+						     {"source": 2, "target": 4, "value": 20},
+						     {"source": 2, "target": 5, "value": 20},
+						     {"source": 4, "target": 5, "value": 20},
+						     {"source": 3, "target": 6, "value": 20},
+						     {"source": 6, "target": 7, "value": 20},
+						     {"source": 6, "target": 10, "value": 20},
+						     {"source": 7, "target": 8, "value": 20},
+						     {"source": 3, "target": 9, "value": 20}
+						    ];
+						 
+			var pageGraph = d3.select("#pagegraph").append("svg")
+					.attr("class", "graph")
+					.style("border", "1px solid #000")
+					.style("background-color", "rgba(256,256,256,0.8)")
+					.attr("height", 500)
+					.attr("width", 500);	
+			// generate the colours
+			var colours = d3.scale.category10();
+
+			//declare the layout
+			var force = d3.layout.force()
+					.charge(-120)
+					.linkDistance(60)
+					.size([500,500]); // change this if the slide or graph change sizes!
+		
+	    		force.nodes(pageDatanodes)
+			     	.links(pageDatalinks)
+			     	.start();	
+
+			var link = pageGraph.selectAll(".link")
+					.data(pageDatalinks)
+					.enter()
+					.append("line")
+					.attr("class","link")
+					.style("stroke","#999")
+					.style("stroke-opacity",0.6)
+					.style("stroke-width",function(d){return Math.sqrt(d.value)});
+
+			var node = pageGraph.selectAll(".node")
+					.data(pageDatanodes)
+					.enter()
+					.append("circle")
+					.attr("class","node")
+					.attr("r",8)
+					.style("stroke","#eee")
+					.style("stroke-width",2)
+					.style("fill", function(d){return colours(d.group);})
+					.call(force.drag);
+
+			node.append("title")
+			    .text(function(d){return d.url;});
+			force.on("tick", function() {
+				link.attr("x1", function(d) { return d.source.x; })
+				    .attr("y1", function(d) { return d.source.y; })
+				    .attr("x2", function(d) { return d.target.x; })
+				    .attr("y2", function(d) { return d.target.y; });
+
+       			        node.attr("cx", function(d) { return d.x; })
+				    .attr("cy", function(d) { return d.y; });
+				});
+	
+
 		</script>
 	</body>
 </html>
