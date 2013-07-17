@@ -391,16 +391,76 @@
         <p>Suppose we already know <em>(from a sentence-aligned bilingual corpus)</em> that:</p>
     <ul>
       <li>"dog" &hArr; "madra"</li>
-      <li>“I have a cat” &hArr; "Tá cát agam"</li>
+      <li>"I have a cat." &hArr; "Tá cát agam."</li>
       <li>We can theoretically translate:<br />
-      "I have a dog”&hArr;“Tá madra agam"</li>
+      "I have a dog"&hArr;"Tá madra agam."</li>
     </ul>
-<p>Even though we have never seen "I have a dog" before, statistical machine translation induces information about unseen input, based on previously known translations
-<br /><em>(Primarily co-occurrence statistics; takes contextual information into account)</em></p> 
 </div>
 <img src="assets/images/translate.png" width="400" style="float:right"  alt="image of SMT" title="image of smt" />
+<p style="clear:left">Even though we have never seen "I have a dog" before, statistical machine translation induces information about unseen input, based on previously known translations
+<br /><em>(Primarily co-occurrence statistics; takes contextual information into account)</em></p> 
 </div>
 </div>        
+<div id="StatisticalProcess1" class="step" data-x="2400" data-y="6000" data-rotate-y="-90" data-z="-1200">
+    <div style="width:1000px; font-size:32px">
+        <img src="assets/images/smt1.png" alt="SMT diagram"/>
+    </div>
+</div>
+<div id="SMTSize" class="step" data-x="2400" data-y="7200">
+    <div style="width:1000px; font-size:32px">
+        <p>All modern approaches are based on building translations for complete sentences by putting together smaller pieces of translation.</p>
+        <p>In reality SMT systems calculate much more complex statistical models over millions of sentence pairs for a pair of languages.</p>
+        <p>Upwards of 2M sentence pairs on average for large-scale systems.</p>
+
+        <p>Statistics calculated to represent:</p>
+        <ul><li>Word-to-word translation probabilities</li>
+            <li>Phrase-to-phrase translation probabilities</li>
+            <li>Word order probabilities</li>
+            <li>Structural information (i.e. syntactic information)</li>
+            <li>Fluency of the final output</li>
+        </ul>
+    </div>
+</div>
+<div id="MTEvaluation" class="step" data-x="2400" data-y="8400">
+     <div style="width:1000px; font-size:32px">
+         <h3>Human evaluation vs. automatic metrics</h3>
+         <p>Human evaluation is expensive, time-consuming, not 100% objective (two evaluators may not agree on their judgement of the same MT output)</p>
+         <p>Automatic evaluation is cheap, fast and consistent</p>
+         <ul><li>Judge the quality of an MT system by comparing its output against a human-produced “reference” translation</li>
+             <li> The more similar the translation is to the reference, the better</li>
+             <li>Wide-range of metrics, mostly focusing on exact word/phrase-level correspondences:
+             <ul>
+                 <li>Edit-distance metrics: Levenshtein, Word Error Rate (WER), Translation Error Rate (TER),</li>
+                 <li>Ngram-based metrics: Precision, Recall, F1-measure, GTM, BLEU</li>
+                 <li>Linguistic-based metrics: DELiC4MT</li>
+             </ul>
+         </li></ul>
+    </div> 
+</div>
+<div id="MTEvaluationExample" class="step" data-x="2400" data-y="8400" data-rotate-y="-90" data-z="1200">
+     <div style="width:1000px; font-size:32px">
+
+<h3>Example:</h3>
+<p><strong>Reference:</strong>  “the Iraqi weapons are to be handed over to the army within two weeks"
+    <br /><strong>MT output:</strong> "in two weeks Iraq’s weapons will give army"</p>
+
+    <p><strong>Possible metric components:</strong>
+<ul><li>Precision: correct words / total words in MT output</li>
+    <li>Recall: correct words / total words in reference</li>
+    <li>Combination of P and R (i.e. F1= 2PR/(P+R))</li>
+    <li>Levenshtein edit distance: number of insertions, deletions, substitutions required to transform MT output to the reference</li>
+</ul>
+</div>
+</div>
+
+<div id="MTConclusions" class="step" data-x="2400" data-y="9600">
+    <div style="width:1000px; font-size:32px; text-align:center">
+        <img src="assets/images/rubbish.png" alt="rubbish in; rubbish out" title="rubbish in; rubbish out" />
+        <p>Training MT systems yourself requires a large, relevent, aligned <a href="http://www.statmt.org/">data set</a> and <a href="https://code.google.com/p/moses-for-mere-mortals/">software</a>.</p>
+        <p><a href="https://developers.google.com/translate/v2/pricing">Google</a> and <a href="http://www.microsofttranslator.com/Widget/">Bing</a> Translate apis are a (<em>paid, generic</em>) option.</p>
+    </div>
+</div>
+
 <!-- Semantic Web -->
 <div id="SemanticsIntro" class="step" data-x="3600">
     <div style="width:1000px; font-size:32px">
