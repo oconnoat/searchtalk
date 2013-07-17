@@ -285,14 +285,10 @@
         <p style="font-size:16px">Star Trek is copyright &copy; CBS Television Studios</p>
     </div>
 </div>
-<div id="MTMeaning" class="step" data-x="2400" data-y="2400">
-    <div style="width:1000px; font-size:32px">
-        <p><em>Poetry is what gets lost in translation.</em>&mdash;Robert Frost.</p>        
-    </div>
-</div>
 <div id="MTApproaches" class="step" data-x="2400" data-y="2400">
     <div style="width:1000px; font-size:32px">
             <h3>Approaches to Machine Translation</h3>
+         <p><em>Poetry is what gets lost in translation.</em>&mdash;Robert Frost.</p>        
         <p>Translate from <strong>source language</strong> to <strong>target language</strong></p>
             <ul>
                 <li>Rule-Based</li>
@@ -301,8 +297,9 @@
             </ul>
        </div>
 </div>
-<div id="MTRule" class="step" data-x="2400" data-y="2400" data-z="-1200" data-rotate-y="90">
+<div id="MTRule" class="step" data-x="2400" data-y="2400" data-z="1200" data-rotate-y="-90">
     <div style="width:1000px; font-size:32px;background-color:#eee">
+        <h3>Rule-based MT</h3>
         <div style="width:400px; float:left;">
             <h3>Given</h3>
             <ul>
@@ -321,8 +318,9 @@
         </div>
     </div>
 </div>
-<div id="MTExample" class="step" data-x="2400" data-y="2400" data-z="-2400" data-rotate-y="90">
+<div id="MTExample" class="step" data-x="2400" data-y="2400" data-z="2400" data-rotate-y="-90">
     <div style="width:1000px; font-size:32px;background-color:#eee">
+         <h3>Example-based MT</h3>
          <div style="width:400px; float:left;">
             <h3>Given</h3>
             <ul>
@@ -341,8 +339,9 @@
         </div>
     </div>
 </div>
-    <div id="MTStat" class="step" data-x="2400" data-y="2400" data-z="-3600" data-rotate-y="90">
+    <div id="MTStat" class="step" data-x="2400" data-y="2400" data-z="3600" data-rotate-y="-90">
     <div style="width:1000px; font-size:32px; background-color:#eee">
+         <h3>Statistical MT</h3>
          <div style="width:400px; float:left;">
             <h3>Given</h3>
             <ul>
@@ -359,6 +358,49 @@
         </div>
     </div>
 </div>
+<div id="whyMTisHard" class="step"  data-x="2400" data-y="3600">
+    <div style="width:1000px; font-size:32px">
+        <h3>Some common problems</h3>
+        <p style="text-align:center">I saw the man with the telescope</p>
+        <p style="text-align:center">Tá<em>(is)</em> ocras<em>(hunger)</em> orm<em>(on me)</em> &hArr; I am hungry.</p>
+        <p>Which sense?</p><ul style="margin-left:40%"><li><a href="http://wordnetweb.princeton.edu/perl/webwn?s=bank">bank</a></li><li><a href="http://wordnetweb.princeton.edu/perl/webwn?s=dive">dive</a></li></ul>
+        <p>Figures of Speech &amp; Contextual References:</p><ul style="margin-left:40%"><li> 'Downing St.'</li><li>'The President'</li> <li>'She'</li></ul>
+    </div>
+</div>
+<div id="HardExamples" class="step"  data-x="2400" data-y="3600" data-z="-1200" data-rotate-y="90">
+    <div style="width:1000px; font-size:32px">
+        <img src="assets/images/sigurros.jpg" alt="Google Translation Error between sigur ros and foo fighters" title="context in translation" />
+    </div>
+</div>
+<div id="Corpus" class="step"  data-x="2400" data-y="4800">
+    <div style="width:1000px; font-size:32px">
+        <h3>Aligned Bilingual Corpora</h3>    
+        <ul>
+            <li>A <em>document-aligned bilingual corpus</em> corresponds on a document level
+            <ul><li>For translation, we required <em>sentence-aligned</em> bilingual corpora
+            The sentence on line 1 in the source language text corresponds to (i.e. is a translation of) the sentence on line 1 in the target language text etc.</li>
+            <li>Often referred to as parallel aligned corpora</li></ul></li>
+        <li>Sentence aligned bilingual parallel corpora are essential for statistical machine translation</li>
+    </ul>
+</div>
+</div>
+<div id="previousTranslations" class="step" data-y="6000" data-x="2400">
+    <div style="width:1000px; font-size:32px">
+    <h3>Using Previous Translation</h3>
+    <div style="width:600px; float:left">
+        <p>Suppose we already know <em>(from a sentence-aligned bilingual corpus)</em> that:</p>
+    <ul>
+      <li>"dog" &hArr; "madra"</li>
+      <li>“I have a cat” &hArr; "Tá cát agam"</li>
+      <li>We can theoretically translate:<br />
+      "I have a dog”&hArr;“Tá madra agam"</li>
+    </ul>
+<p>Even though we have never seen "I have a dog" before, statistical machine translation induces information about unseen input, based on previously known translations
+<br /><em>(Primarily co-occurrence statistics; takes contextual information into account)</em></p> 
+</div>
+<img src="assets/images/translate.png" width="400" style="float:right"  alt="image of SMT" title="image of smt" />
+</div>
+</div>        
 <!-- Semantic Web -->
 <div id="SemanticsIntro" class="step" data-x="3600">
     <div style="width:1000px; font-size:32px">
