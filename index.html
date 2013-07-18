@@ -3,9 +3,6 @@
 	<head>
 		<title>Introduction to IR, MT &amp; Semantics -- Alexander O'Connor </title>
         <style>
-            div.step div{
-                background-color:rgba(256,256,256,0.8);
-            }
         </style>
 	</head>
 	<body>
@@ -17,6 +14,11 @@
 					<img src="assets/images/alex.png" title="Alexander O'Connor" alt="Author Image" />
 					<h3><a href="mailto:Alex.OConnor@scss.tcd.ie">Alex.OConnor@scss.tcd.ie</a></h3>	
 					<h3><a href="http://www.twitter.com/uberalex">@uberalex</a></h3>
+                    <div style="position:relative; bottom:2px">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://oconnoat.github.io/searchtalk" data-via="uberalex" data-lang="en">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    <a href="http://www.github.com/oconnoat/searchtalk"><img src="assets/images/github.png" height="24" alt="github logo" title="github repo"></a>
+                    </div>
 				</div>
 			</div>
 			<div id="Outline" class="step" data-x="-1200" data-y="0">
@@ -479,42 +481,79 @@
         <img src="assets/images/lodcloud.png" width="900" alt="Image of the LOD Cloud" title="Linking Open Data cloud diagram, by Richard Cyganiak and Anja Jentzsch. http://lod-cloud.net/ CC-BY-SA " /> 
     </div>
 </div>
+<div id="schemaanddata" class="step" data-x="3600" data-y="2400" data-rotate-x="90" data-z="1200">
+    <div style="width:1000px; font-size:32px">
+        <ul>
+            <li>The Key feature of the Semantic approach is that we define both the <strong>Schema</strong> and the <strong>Instances</strong>, so both can be queried.</li>
+
+            <li>Arranged as a graph, the network is part of the knowledge you can access.</li>
+        </ul>
+    </div>
+
+</div>
+
 <!-- RDF -->
 <div id="RDF" class="step" data-x="3600" data-y="3600">
-    <div style="with:1000px; font-size:32px">
+    <div style="width:1000px; font-size:32px">
+        <h3>Resource Description Framework</h3>
+        <p>This is the most commonly-used approach to encoding semantic data</p>
+        <p>The Schema can either be RDFS or OWL-based (SKOS is also an option)</p>
     </div>
 </div>
-<!-- SKOS & vocabs -->
-<div id="SKOSIntro" class="step" data-x="4800" data-y="3600">
+<div id="RDFTriple" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="1200">
     <div style="width:1000px; font-size:32px">
-        The Semantic Approach
+        <h3>Everything is built around the concept of a triple.</h3>
+        <img src="assets/images/triple.png" alt="triple-graph" />
+        <p>The Triples are then built into a Graph</p>
     </div>
 </div>
-<div id="SKOSMotivation" class="step" data-x="4800" data-rotate-x="90" data-z="1200" data-y="3600">
+<div id="RDFGraph" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="2400">
     <div style="width:1000px; font-size:32px">
-       SKOS motivation 
+        <ul>
+            <li>The RDF Graph is built up fro the triples, and includes the Instances, as well as their properties.</li>
+            <li>External references are made to the Schema(s) as namespaces</li>
+            <li>Using a graph allows knowledge-driven querying, and <strong>inference</strong></li>
+        </ul>
     </div>
 </div>
-<div id="SKOSstructure" class="step" data-x="4800" data-y="3600" data-rotate-x="90" data-z="2400">
+<!-- Schemas -->
+<div id="Schemaintro" class="step" data-x="3600" data-y="4800">
     <div style="width:1000px; font-size:32px">
-       SKOS Structure 
+        <ul><li>Schemas define the knowledge space, they group Instances and describe their common properties.<br /><em>e.g.: Instances of the class 'Book' have the property 'hasPublisher', which is an instance of the 'Publisher' class</em></li>
+            <li>You are free to write your own Schema, but reuse is <strong>strongly</strong> recommended. <a href="http://lov.okfn.org/dataset/lov/">Some popular Schemas</a> include:
+            <ul><li><a href="http://purl.org/dc/terms/">Dublin Core</a></li><li><a href="http://www.w3.org/2009/08/skos-reference/skos.html">SKOS</a></li><li><a href="http://xmlns.com/foaf/spec/">FOAF</a></li></ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="Class" class="step" data-x="3600" data-rotate-x="90" data-z="1200" data-y="4800">
+    <div style="width:1000px; font-size:32px">
+        
+    </div>
+</div>
+<div id="Instances" class="step" data-x="3600" data-y="4800" data-rotate-x="90" data-z="1200">
+    <div style="width:1000px; font-size:32px">
+    </div>
+</div>
+<div id="Properties" class="step" data-x="3600" data-y="4800" data-rotate-x="90" data-z="2400">
+    <div style="width:1000px; font-size:32px">
     </div>
 </div>
 
 <!-- Linked Data-->
 <div id="LODIntro" class="step" data-x="3600" data-y="6000">
     <div style="width:1000px; font-size:32px">
-        LOD Intro
+        <a href="https://dvcs.w3.org/hg/gld/raw-file/default/glossary/index.html">Linked Open Data</a> is an attempt at a practical Semantic Web.
     </div>
 </div>
 <div id="LODMotivation" class="step" data-x="3600" data-y="6000" data-rotate-x="90" data-z="1200">
     <div style="width:1000px; font-size:32px">
-        LOD Motivate
+            
     </div>
 </div>
 <div id="LODstructure" class="step" data-x="3600" data-y="6000" data-rotate-x="90" data-z="2400">
     <div style="width:1000px; font-size:32px">
-        LOD Structure 
+    
     </div>
 </div>
 
@@ -556,21 +595,22 @@
         Two types of challenge:
         <ol><li>How to share knowledge?</li>
             <li>What's the most effective form of knowledge to share?</li></ol>
+        <p style="font-size:16px"><a href="http://www.dlib.org/dlib/july13/younglove/07younglove.html">Further reading on archival approaches</a></p>
     </div>
 </div>
-<div id="OverallConclusionsShare" class="step" data-x="0" data-y="12000" data-rotate-z="90" data-z="1000"> 
+<div id="OverallConclusionsShare" class="step" data-x="0" data-y="12000" data-rotate-x="-90" data-z="-1200"> 
     <div style="width:1000px; font-size:32px">
         <h3>How to share knowledge?</h3>
 
     </div>
 </div>
-<div id="OverallConclusionsForm" class="step" data-x="0" data-y="12000" data-rotate-z="90" data-z="1000"> 
+<div id="OverallConclusionsForm" class="step" data-x="0" data-y="12000" data-rotate-x="-90" data-z="-2400"> 
     <div style="width:1000px; font-size:32px">
         <h3>What's the most effective form of knowledge to share?</h3>
 
     </div>
 </div>
-<div id="OverallConclusionUser" class="step" data-x="0" data-y="12000" data-rotate-z="90" data-z="1000"> 
+<div id="OverallConclusionUser" class="step" data-x="0" data-y="12000" data-rotate-x="-90" data-z="-3600"> 
     <div style="width:1000px; font-size:32px">
         Think about the user.
     </div>
@@ -578,11 +618,9 @@
 
 </div>
 <!-- End of Impress -->
-<div id="navbar" style="position:absolute; width:100%; background-color:rgba(127,0,0,0.5);">
-<a href="https://twitter.com/share" class="twitter-share-button" data-via="uberalex">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-<a href="http://www.github.com/oconnoat/searchtalk"><img src="assets/images/github.png" height="32" alt="github logo" title="github repo"></a>
-</div>	
+<div id="navbar" style="position:absolute; top:0; left:2px;">
+    <span id="timer">00</span><br />
+   </div>	
 
 
 
@@ -596,7 +634,28 @@
          <script type="text/javascript"> if (typeof(d3) == 'undefined') { alert('d3 didn\'t load'); document.write("<script src=\"js/d3.v3.min.js\"><\/script>");}</script>
 		<!-- scripting -->
 		<script type="text/javascript">
-       
+ 
+////////////////////////// Timer Scripting //////////
+//http://stackoverflow.com/questions/1191865/code-for-a-simple-javascript-countdown-timer
+function timer(time,update) {
+    var start = new Date().getTime();
+    var interval = setInterval(function() {
+        var now = time-(new Date().getTime()-start);
+        if( now <= 0) {
+            clearInterval(interval);
+        }
+        else update(Math.floor(now/1000));
+    },500); // the smaller this number, the more accurate the timer will be
+}
+timer(
+    5400000, // milliseconds
+    function(timeleft) { // called every step to update the visible countdown
+        hours = timeleft / 3600;
+        mins = (timeleft  / 60) % 60;
+        sec = timeleft  % 60;
+        document.getElementById('timer').innerHTML = Math.floor(hours) + ":" + Math.floor(mins) + ":" + sec;
+    }
+); 
 ////////////////////////// D3 Scripting //////////
 			//histogram of the words in the poem
 			var poemdata = [{'count': 6, 'word': 'the'}, {'count': 4, 'word': 'a'}, {'count': 4, 'word': 'of'}, {'count': 3, 'word': 'me'}, {'count': 3, 'word': 'commemorate'}, {'count': 2, 'word': 'and'}, {'count': 2, 'word': 'in'}, {'count': 2, 'word': 'for'}, {'count': 2, 'word': 'no'}, {'count': 2, 'word': 'with'}, {'count': 2, 'word': 'by'}, {'count': 2, 'word': 'to'}, {'count': 2, 'word': 'who'}, {'count': 2, 'word': 'water'}, {'count': 2, 'word': 'o'}, {'count': 2, 'word': 'where'}, {'count': 1, 'word': 'heart'}, {'count': 1, 'word': 'fantastic'}, {'count': 1, 'word': 'far-flung'}, {'count': 1, 'word': 'just'}, {'count': 1, 'word': 'summer'}, {'count': 1, 'word': 'low'}, {'count': 1, 'word': 'lock'}, {'count': 1, 'word': 'is'}, {'count': 1, 'word': 'thus'}, {'count': 1, 'word': 'head'}, {'count': 1, 'word': 'erected'}, {'count': 1, 'word': 'prose'}, {'count': 1, 'word': 'way'}, {'count': 1, 'word': 'through'}, {'count': 1, 'word': 'at'}, {'count': 1, 'word': 'beautifully'}, {'count': 1, 'word': 'apologies'}, {'count': 1, 'word': 'towns'}, {'count': 1, 'word': 'speak'}, {'count': 1, 'word': 'canal'}, {'count': 1, 'word': 'bridges'}, {'count': 1, 'word': 'from'}, {'count': 1, 'word': 'stilly'}, {'count': 1, 'word': 'tremendous'}, {'count': 1, 'word': 'will'}, {'count': 1, 'word': 'swan'}, {'count': 1, 'word': 'passer-by'}, {'count': 1, 'word': 'canal-bank'}, {'count': 1, 'word': 'roars'}, {'count': 1, 'word': 'other'}, {'count': 1, 'word': "o'brien"}, {'count': 1, 'word': 'goes'}, {'count': 1, 'word': 'memory'}, {'count': 1, 'word': 'seat'}, {'count': 1, 'word': 'many'}, {'count': 1, 'word': 'dermot'}, {'count': 1, 'word': 'eyes'}, {'count': 1, 'word': 'his'}, {'count': 1, 'word': 'athy'}, {'count': 1, 'word': 'there'}, {'count': 1, 'word': 'mid-july'}, {'count': 1, 'word': 'falls'}, {'count': 1, 'word': 'preferably'}, {'count': 1, 'word': 'hero-courageous'}, {'count': 1, 'word': 'barge'}, {'count': 1, 'word': 'parnassian'}, {'count': 1, 'word': 'one'}, {'count': 1, 'word': 'bringing'}, {'count': 1, 'word': 'those'}, {'count': 1, 'word': 'look'}, {'count': 1, 'word': 'these'}, {'count': 1, 'word': 'sit'}, {'count': 1, 'word': 'greeny'}, {'count': 1, 'word': 'brother'}, {'count': 1, 'word': 'mrs'}, {'count': 1, 'word': 'niagarously'}, {'count': 1, 'word': 'mythologies'}, {'count': 1, 'word': 'so'}, {'count': 1, 'word': 'silence'}, {'count': 1, 'word': 'light'}, {'count': 1, 'word': 'islands'}, {'count': 1, 'word': 'tomb'}, {'count': 1, 'word': 'finds'}, {'count': 1, 'word': 'comes'}, {'count': 1, 'word': 'looks'}]	
