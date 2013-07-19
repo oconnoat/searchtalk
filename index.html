@@ -3,6 +3,15 @@
 	<head>
 		<title>Introduction to IR, MT &amp; Semantics -- Alexander O'Connor </title>
         <style>
+            div.step{
+                background-color:rgba(256,256,256,0.8);
+                border: 1px solid #eee;
+            }
+            table, td, tr, th{
+                border: 2px solid #000;
+                padding: 2px;
+
+            }
         </style>
 	</head>
 	<body>
@@ -121,7 +130,7 @@
 					</ul>
 				</div>
 			</div>
-			<div id="IDFAlgo" class="step" data-x="1200" data-y="2000" data-z="1000" data-rotate-y="90"> 
+			<div id="IDFAlgo" class="step" data-x="1200" data-y="2000" data-z="1200" data-rotate-y="90"> 
 				<div style="width:1000px; font-size:32px">
 					<h3>What words are most important?</h3>
 					<ul>
@@ -464,8 +473,10 @@
 
 <!-- Semantic Web -->
 <div id="SemanticsIntro" class="step" data-x="3600" data-y="0">
-    <div style="width:1000px; font-size:32px">
+    <div style="width:1000px; font-size:32px; text-align:center">
+        <h1>
         The Semantic Approach
+    </h1>
     </div>
 </div>
 <div id="SemanticMotivation" class="step" data-x="3600" data-y="1200">
@@ -501,12 +512,58 @@
     </div>
 </div>
 <div id="RDFTriple" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="1200">
-    <div style="width:1000px; font-size:32px">
+    <div style="width:1000px; font-size:32px; background-color:rgba(256,256,256,1); text-align:center">
         <h3>Everything is built around the concept of a triple.</h3>
-        <img src="assets/images/triple.png" alt="triple-graph" />
+        <pre>&lt;Subject, Predicate, Object&gt;</pre>
+        <img src="assets/images/spo.png" alt="s,p,o" title="s,p,o" />
         <p>The Triples are then built into a Graph</p>
     </div>
 </div>
+<div id="RDFInstance" class="step" data-x="3600" data-rotate-x="90" data-z="1200" data-y="4800">
+    <div style="width:1000px; font-size:32px; background-color:rgba(256,256,256,0.8);">
+        <table>
+            <tr><th>ISBN</th><th>Title</th><th>Author</th><th>PublisherID</th><th>Pages</th></tr>
+            <tr style="background-color:rgba(200,90,90,1)"><td>596000480</td><td>Javascript</td><td>D.Flanagan</td><td>3556</td><td>936</td></tr>
+            <tr><td>596002637</td><td>Practical RDF</td><td>S. Powers</td><td>7642</td><td>350</td></tr>
+            <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+        </table>
+        <h3>A Row in a Table is an instance in RDF: the Subject</h3>
+    </div>
+</div>
+<div id="RDFProperties" class="step" data-x="3600" data-y="4800" data-rotate-x="90" data-z="2400">
+    <div style="width:1000px; font-size:32px">
+          <table>
+            <tr><th>ISBN</th><th style="background-color:rgba(200,90,90,1)">Title</th><th>Author</th><th>PublisherID</th><th>Pages</th></tr>
+            <tr><td>596000480</td><td style="background-color:rgba(200,90,90,1)">Javascript</td><td>D.Flanagan</td><td>3556</td><td>936</td></tr>
+            <tr><td>596002637</td><td style="background-color:rgba(200,90,90,1)">Practical RDF</td><td>S. Powers</td><td>7642</td><td>350</td></tr>
+            <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+        </table>
+        <h3>A Column in a Table is a Property in RDF: the Predicate</h3>
+    </div>
+</div>
+<div id="RDFValue" class="step" data-x="3600" data-y="4800" data-rotate-x="90" data-z="3600">
+    <div style="width:1000px; font-size:32px">
+        <table>
+            <tr><th>ISBN</th><th>Title</th><th>Author</th><th>PublisherID</th><th>Pages</th></tr>
+            <tr><td>596000480</td><td style="background-color:rgba(200,90,90,1)">Javascript</td><td>D.Flanagan</td><td>3556</td><td>936</td></tr>
+            <tr><td>596002637</td><td>Practical RDF</td><td>S. Powers</td><td>7642</td><td>350</td></tr>
+            <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+        </table>
+        <h3>A Cell Value in a Table is the propery of one instance: the Object</h3>
+    </div>
+</div>
+<div id="RDFSchema" class="step" data-x="3600" data-rotate-x="90" data-z="4800" data-y="4800">
+    <div style="width:1000px; font-size:32px">
+        <table>
+            <tr style="background-color:rgba(200,90,90,1)"><th>ISBN</th><th>Title</th><th>Author</th><th>PublisherID</th><th>Pages</th></tr>
+            <tr><td>596000480</td><td>Javascript</td><td>D.Flanagan</td><td>3556</td><td>936</td></tr>
+            <tr><td>596002637</td><td>Practical RDF</td><td>S. Powers</td><td>7642</td><td>350</td></tr>
+            <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+        </table>
+            <h3>The Column Names are (part of) the Schema in RDF</h3>
+    </div>
+</div>
+
 <div id="RDFGraph" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="2400">
     <div style="width:1000px; font-size:32px">
         <ul>
@@ -516,6 +573,40 @@
         </ul>
     </div>
 </div>
+<div id="RDFGraphExample1" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="3600">
+    <div style="width:1000px; font-size:32px">
+                <img src="assets/images/RDF1.png"  alt="RDF Graph" title="building the RDF Graph" />
+        <p>aBook is our instance</p>
+
+    </div>
+</div>
+<div id="RDFGraphExample2" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="4800">
+    <div style="width:1000px; font-size:32px">
+               <img src="assets/images/RDF2.png" width="900" alt="RDF Graph" title="building the RDF Graph" />
+                <p>aBook hasTitle "Javascript"^^XSD:String.</p>
+
+    </div>
+</div>
+<div id="RDFGraphExample3" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="6000">
+    <div style="width:1000px; font-size:32px">
+                <img src="assets/images/RDF3.png" width="900" alt="RDF Graph" title="building the RDF Graph" />
+                <p>aBook hasIsbn "0596000480^XSD:Integer.</p>
+
+    </div>
+</div>
+<div id="RDFGraphExample4" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="7200">
+    <div style="width:1000px; font-size:32px">
+        <p>aBook hasPublisher aPublisher.</p>
+        <img src="assets/images/RDF4.png" width="900" alt="RDF Graph" title="building the RDF Graph" />
+    </div>
+</div>
+<div id="RDFGraphExample5" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="9400">
+    <div style="width:1000px; font-size:32px">
+        <p>aBook is-a Bib:Book.</p>
+        <img src="assets/images/RDF5.png" width="900" alt="RDF Graph" title="building the RDF Graph" />
+    </div>
+</div>
+
 <!-- Schemas -->
 <div id="Schemaintro" class="step" data-x="3600" data-y="4800">
     <div style="width:1000px; font-size:32px">
@@ -524,19 +615,6 @@
             <ul><li><a href="http://purl.org/dc/terms/">Dublin Core</a></li><li><a href="http://www.w3.org/2009/08/skos-reference/skos.html">SKOS</a></li><li><a href="http://xmlns.com/foaf/spec/">FOAF</a></li></ul>
             </li>
         </ul>
-    </div>
-</div>
-<div id="Class" class="step" data-x="3600" data-rotate-x="90" data-z="1200" data-y="4800">
-    <div style="width:1000px; font-size:32px">
-        
-    </div>
-</div>
-<div id="Instances" class="step" data-x="3600" data-y="4800" data-rotate-x="90" data-z="1200">
-    <div style="width:1000px; font-size:32px">
-    </div>
-</div>
-<div id="Properties" class="step" data-x="3600" data-y="4800" data-rotate-x="90" data-z="2400">
-    <div style="width:1000px; font-size:32px">
     </div>
 </div>
 
@@ -548,74 +626,118 @@
 </div>
 <div id="LODMotivation" class="step" data-x="3600" data-y="6000" data-rotate-x="90" data-z="1200">
     <div style="width:1000px; font-size:32px">
-            
-    </div>
-</div>
-<div id="LODstructure" class="step" data-x="3600" data-y="6000" data-rotate-x="90" data-z="2400">
-    <div style="width:1000px; font-size:32px">
-    
+        <blockquote><em>Provide a common API for data on the Web which is more convenient than many separately and differently designed APIs published by individual data suppliers. Tim Berners-Lee, the inventor of the Web and initiator of the Linked Data project, proposed the following principles upon which Linked Data is based:</em>
+                <ol>
+                    <li><em>Use URIs to name things;</em></li>
+                    <li><em>Use HTTP URIs so that things can be referred to and looked up ("dereferenced") by people and user agents;</em></li>
+                    <li><em>When someone looks up a URI, provide useful information, using the open Web standards such as RDF, SPARQL;</em></li>
+                    <li><em>Include links to other related things using their URIs when publishing on the Web.</em></li>
+            </ol>From the <a href="https://dvcs.w3.org/hg/gld/raw-file/default/glossary/index.html#linked-data-principles">Linked Data Glossary</a></blockquote>
     </div>
 </div>
 
 <!-- Europeana and DBPedia Examples -->
 <div id="SPARQLIntro" class="step" data-x="3600" data-y="7200">
     <div style="width:1000px; font-size:32px">
-        SPARQL
+        <h3>SPARQL</h3>
+        <ul>
+            <li>The language for querying the Linked Data Web</li>
+            <li><a href="http://www.slideshare.net/LeeFeigenbaum/sparql-cheat-sheet">Rich syntax</a>, permits retrieving facts, constructing graphs, asking questions and exploring the schema and data.</li>
+            <li>Evolving standard, now at 1.1</li>
+        </ul>
     </div>
 </div>
+<div id="SPARQLMatch" class="step" data-x="3600" data-y="7200" data-rotate-x="-90" data-z="-1200">
+    <div style="width:1000px; font-size:32px">
+        <img src="assets/images/sparqlmatch.png" alt="graph matching" />
+    </div>
+</div>
+
 <div id="DBPedia" class="step" data-x="3600" data-y="7200" data-rotate-x="90" data-z="2400">
     <div style="width:1000px; font-size:32px">
-        DBPedia Queries
-    </div>
-</div>
-<div id="Europeana" class="step" data-x="3600" data-y="7200" data-rotate-x="90" data-z="3600">
-    <div style="width:1000px; font-size:32px">
-        Europeana Queries 
+        <h3><a href="http://www.dbpedia.org/sparql" target="dbpedia_sparql">DBPedia Query Example</a>: Is Mt. Everest Higher than K2?</h3> 
+        <pre style="font-size: 16px">
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX : &lt;http://dbpedia.org/resource/&gt;
+PREFIX dbpedia2: &lt;http://dbpedia.org/property/&gt;
+PREFIX dbpedia: &lt;http://dbpedia.org/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+ASK where{
+&lt;http://dbpedia.org/resource/Mount_Everest&gt; dbpedia2:elevationM ?everestA.
+&lt;http://dbpedia.org/resource/K2&gt; dbpedia2:elevationM ?k2A.
+
+FILTER(?everestA &gt; ?k2A).
+}
+</pre>
+<p>See also: <a href="http://europeana.ontotext.com/sparql">Europeana SPARQL Endpoint</a></p>
     </div>
 </div>
 
 <!--Conclusions-->
 <div id="Criticisms" class="step" data-x="3600" data-y="8400">
-    <div style="width:1000px; font-size:32px">
-        <p>Graph-based data is <a href="http://www.cni.org/pbs/rdf-resource-description-failures-and-linked-data-letdowns/"><strong>not</strong> a <em>panacea.</em></a></p>
+    <div style="width:1000px; font-size:32px; text-align:center">
+        <h2>Graph-based data is <a href="http://www.cni.org/pbs/rdf-resource-description-failures-and-linked-data-letdowns/"><strong>not</strong> a <em>panacea.</em></a></h2>
     </div>
 </div>
 <div id="LODHowto" class="step" data-x="3600" data-y="9600">
     <div style="width:1000px; font-size:32px">
         <ol>
-           <li>Data</li>
-           <li>Schema</li>
-           <li>Publishing Platform</li>
+           <li>Data: CSV, XML, or in a Relational Database</li>
+           <li>Schema: Adopt and extend existing concepts</li>
+           <li>Links: Link to other collections</li>
+           <li>Publishing Platform: '<a href="http://en.wikipedia.org/wiki/Triplestore">Quad Store</a>', serves human and machine-readable content</li>
        </ol>
     </div>
 </div>
+<div id="LODMug" class="step" data-x="3600" data-y="9600" data-rotate-x="90" data-z="1200">
+    <div style="width:1000px; font-size:32px">
+        <img src="assets/images/mug.jpg" alt="LOD Mug" style="float:left" />
+        <ol style="float:left; margin-left:20px;" type="i">
+            <li>On the Web, Open License</li>
+            <li>Machine-readable Data</li>
+            <li>Non-proprietary format</li>
+            <li>RDF standards</li>
+            <li>Linked RDF</li>
+        </ol>
+    </div>
+</div>
 <!-- Overall Conclusions -->
-<div id="OverallConclusions" class="step" data-x="0" data-y="12000">
-    <div style="width:1000px; font-size:32px">
-        Two types of challenge:
-        <ol><li>How to share knowledge?</li>
-            <li>What's the most effective form of knowledge to share?</li></ol>
-        <p style="font-size:16px"><a href="http://www.dlib.org/dlib/july13/younglove/07younglove.html">Further reading on archival approaches</a></p>
+<div id="OverallConclusions" class="step" data-x="0" data-y="6000">
+    <div style="width:1000px; font-size:32px; text-align:center">
+        <h1>Final Thoughts</h1>
+        <h2>Two types of challenge.</h2>
     </div>
 </div>
-<div id="OverallConclusionsShare" class="step" data-x="0" data-y="12000" data-rotate-x="-90" data-z="-1200"> 
-    <div style="width:1000px; font-size:32px">
-        <h3>How to share knowledge?</h3>
-
+<div id="OverallConclusionsShare" class="step" data-x="0" data-y="6000" data-rotate-x="-90" data-z="-1200"> 
+    <div style="width:1000px; font-size:32px;  text-align:center">
+        <h1>Final Thoughts</h1>
+        <h2>How to share knowledge?</h2>
     </div>
 </div>
-<div id="OverallConclusionsForm" class="step" data-x="0" data-y="12000" data-rotate-x="-90" data-z="-2400"> 
-    <div style="width:1000px; font-size:32px">
-        <h3>What's the most effective form of knowledge to share?</h3>
-
+<div id="OverallConclusionsForm" class="step" data-x="0" data-y="6000" data-rotate-x="-90" data-z="-2400"> 
+    <div style="width:1000px; font-size:32px; text-align:center">
+        <h1>Final Thoughts</h1>
+        <h2>What's the most effective form of knowledge to share?</h2>
     </div>
 </div>
-<div id="OverallConclusionUser" class="step" data-x="0" data-y="12000" data-rotate-x="-90" data-z="-3600"> 
-    <div style="width:1000px; font-size:32px">
-        Think about the user.
+<div id="OverallConclusionUser" class="step" data-x="0" data-y="6000" data-rotate-x="-90" data-z="-3600"> 
+    <div style="width:1000px; font-size:32px; text-align:center">
+        <h1>Final Thoughts</h1>
+        <h2>Think about the user. Think about your data.</h2>
     </div>
 </div>
-
+<div id="ThankYou" class="step" data-x="0" data-y="6000" data-rotate-x="-90" data-z="-4800"> 
+    <div style="width:1000px; font-size:32px; text-align:center">
+        <h1>Thank You.</h1>
+        <p><em>This research is supported by the <a href="www.sfi.ie">Science Foundation Ireland</a> (Grant 12/CE/I2267) as part of the <a href="http://www.cngl.ie">Centre for Next Generation Localisation</a> at <a href="http://www.tcd.ie">Trinity College Dublin.</a></em></p> 
+        <p style="font-size:16px">Built with <a href="http://bartaz.github.io/impress.js/#/bored">impress.js</a>, <a href="http://d3js.org/">d3.js</a> and <a href="http://github.io">github.io</a></p>
+    </div>
+</div>
 </div>
 <!-- End of Impress -->
 <div id="navbar" style="position:absolute; top:0; left:2px;">
@@ -765,8 +887,7 @@ timer(
        			        node.attr("cx", function(d) { return d.x; })
 				    .attr("cy", function(d) { return d.y; });
 				});
-	
-
+////////// RDF Graphs ////////
 		</script>
 	</body>
 </html>
