@@ -1,9 +1,12 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<meta charset="UTF-8">
 		<title>Introduction to IR, MT &amp; Semantics -- Alexander O'Connor </title>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Bitter&subset=latin-ext' rel='stylesheet' type='text/css'>
         <style>
             div.step{
+				font-family: 'Source Sans Pro', sans-serif;
                 background-color:rgba(256,256,256,0.8);
                 border: 1px solid #eee;
             }
@@ -12,6 +15,9 @@
                 padding: 2px;
 
             }
+			h1, h2, h3, h4{
+				font-family: 'Bitter', serif;
+			}
         </style>
 	</head>
 	<body>
@@ -72,7 +78,7 @@
 				<div style="width:1000px; font-size:32px">	
 					<h2>Information Retrieval</h2>
 					<input type="text" value="Grand Canal" style="float:left; margin-right:10px;font-size:32px; width:400px;" />
-					<input type="submit" value="I'm feeling (un)lucky!" style="float:left;font-size:10em" />
+					<input type="submit" value="I'm feeling (un)lucky!" style="float:left;" />
 				</div>
 			</div>	
 			<div id="DocRep" class="step" data-x="1200" data-y="1200">
@@ -567,7 +573,7 @@
 <div id="RDFGraph" class="step" data-x="3600" data-y="3600" data-rotate-x="90" data-z="2400">
     <div style="width:1000px; font-size:32px">
         <ul>
-            <li>The RDF Graph is built up fro the triples, and includes the Instances, as well as their properties.</li>
+            <li>The RDF Graph is built up from the triples, and includes the Instances, as well as their properties.</li>
             <li>External references are made to the Schema(s) as namespaces</li>
             <li>Using a graph allows knowledge-driven querying, and <strong>inference</strong></li>
         </ul>
@@ -887,7 +893,17 @@ timer(
        			        node.attr("cx", function(d) { return d.x; })
 				    .attr("cy", function(d) { return d.y; });
 				});
-////////// RDF Graphs ////////
 		</script>
+<!--Google -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42609614-1', 'oconnoat.github.io');
+  ga('send', 'pageview');
+
+</script>
 	</body>
 </html>
