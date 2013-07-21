@@ -132,6 +132,7 @@
 					<ul>
 						<li>Choose the document that mentions the query terms most often</li>
 						<li>We call this <strong>Term Frequency</strong>, tf</li>
+                        <li>often apply a scaling factor to account for long documents</li>
 						<li><em>But, this has weaknesses</em></li>
 					</ul>
 				</div>
@@ -141,7 +142,7 @@
 					<h3>What words are most important?</h3>
 					<ul>
 						<li>Count how many documents there are where the term appears</li>
-						<li>in the <em>corpus</em></li>
+                        <li><ul><li>in the <em>corpus</em></li></ul></li>
 						<li>We call this <strong>Document Frequency</strong>, df<sub>t</sub></li>
 						<li>document measure, not word measure</li>
 					</ul>
@@ -152,7 +153,7 @@
 					<h3>What words are most important?</h3>
 					<ul>
 						<li>We use the <strong>inverse document frequency</strong> as a scaling factor for the term frequency</li>
-						<li>idf<sub>t</sub> = Log( #Documents where term appears / df<sub>t</sub>)</li>
+						<li>idf<sub>t</sub> = Log( #Documents  / df<sub>t</sub>)</li>
 					</ul>
 				</div>
 			</div>
